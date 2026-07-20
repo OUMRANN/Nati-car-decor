@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nati Car Decor — VVIP Auto Styling, Addis Ababa</title>
+<meta name="description" content="Nati Car Decor — bespoke Tapseri upholstery, VVIP exterior wraps and interior enhancements for BYD, Vitz and Corolla. Lebu Mebrat Hail, Addis Ababa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --obsidian:#0A0A0C;
+    --gunmetal:#17181C;
+    --gunmetal-2:#1F2025;
+    --champagne:#C9A24B;
+    --champagne-dim:#8A7238;
+    --burgundy:#3D1420;
+    --ivory:#F4EFE4;
+    --smoke:#9A9CA5;
+    --thread:#6B6D74;
+    --line:rgba(244,239,228,0.08);
+    --focus-ring:#C9A24B;
+
+    --font-display:'Bodoni Moda', serif;
+    --font-body:'Manrope', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+
+    --fs-hero:clamp(2.4rem, 9vw, 5.5rem);
+    --fs-h2:clamp(1.8rem, 5vw, 3rem);
+    --fs-h3:clamp(1.25rem, 3vw, 1.75rem);
+    --fs-body:clamp(1rem, 2.2vw, 1.125rem);
+    --fs-caption:clamp(0.75rem, 1.6vw, 0.875rem);
+    --tracking-eyebrow:0.18em;
+
+    --space:8px;
+    --radius-card:2px;
+    --radius-pill:999px;
+    --shadow-lift:0 24px 60px -20px rgba(0,0,0,0.6);
+    --glow-champagne:0 0 40px -10px rgba(201,162,75,0.35);
+
+    --ease-precision:cubic-bezier(0.22,1,0.36,1);
+    --dur-fast:180ms;
+    --dur-reveal:700ms;
+    --dur-gloss:1400ms;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--obsidian);
+    color:var(--ivory);
+    font-family:var(--font-body);
+    font-size:var(--fs-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:500; margin:0; letter-spacing:0.01em;}
+  p{margin:0;}
+  ul{margin:0; padding:0; list-style:none;}
+  button{font-family:inherit; cursor:pointer; background:none; border:none; color:inherit;}
+
+  :focus-visible{outline:2px solid var(--focus-ring); outline-offset:3px;}
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    letter-spacing:var(--tracking-eyebrow);
+    text-transform:uppercase;
+    color:var(--champagne);
+  }
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  section{position:relative; padding:calc(var(--space)*14) 0;}
+
+  .btn-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:var(--radius-pill);
+    border:1px solid var(--champagne-dim);
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ivory);
+    transition:border-color var(--dur-fast) var(--ease-precision), box-shadow var(--dur-fast) var(--ease-precision), transform var(--dur-fast) var(--ease-precision);
+    white-space:nowrap;
+  }
+  .btn-pill:hover, .btn-pill:focus-visible{
+    border-color:var(--champagne);
+    box-shadow:var(--glow-champagne);
+    transform:translateY(-1px);
+  }
+  .btn-pill.solid{
+    background:var(--champagne);
+    color:var(--obsidian);
+    border-color:var(--champagne);
+    font-weight:600;
+  }
+
+  /* ===== STITCH LINE — signature global element ===== */
+  #stitch-line-holder{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100vh;
+    pointer-events:none;
+    z-index:5;
+  }
+  #stitch-svg{
+    position:absolute;
+    left:18px;
+    top:0;
+    height:100vh;
+    width:14px;
+  }
+  #stitch-path{
+    fill:none;
+    stroke:var(--champagne-dim);
+    stroke-width:1.5;
+    stroke-dasharray:6 7;
+    opacity:0.55;
+  }
+  #stitch-path-progress{
+    fill:none;
+    stroke:var(--champagne);
+    stroke-width:1.5;
+    stroke-dasharray:6 7;
+    stroke-dashoffset:0; /* set by JS: total length, animated down to 0 as user scrolls */
+  }
+  @media (max-width:767px){
+    #stitch-svg{ left:8px; width:8px; }
+  }
+
+  /* ===== HEADER ===== */
+  header{
+    position:fixed; top:0; left:0; width:100%;
+    z-index:20;
+    padding:18px 0;
+    transition:background var(--dur-reveal) var(--ease-precision), backdrop-filter var(--dur-reveal) var(--ease-precision), border-color var(--dur-reveal) var(--ease-precision);
+    border-bottom:1px solid transparent;
+  }
+  header.solid{
+    background:rgba(23,24,28,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom-color:var(--line);
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .logo{font-family:var(--font-display); font-size:1.25rem; letter-spacing:0.02em;}
+  .logo span{color:var(--champagne);}
+  nav ul{display:flex; gap:32px;}
+  nav a{
+    font-size:var(--fs-caption);
+    font-family:var(--font-mono);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--smoke);
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav a::after{
+    content:'';
+    position:absolute; left:0; bottom:0;
+    width:0; height:1px;
+    background:var(--champagne);
+    transition:width var(--dur-fast) var(--ease-precision);
+  }
+  nav a:hover, nav a:focus-visible{ color:var(--ivory); }
+  nav a:hover::after, nav a:focus-visible::after{ width:100%; }
+  @media (max-width:900px){ nav{display:none;} }
+
+  /* ===== HERO ===== */
+  #hero{
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+    padding-bottom:80px;
+  }
+  #hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(60% 50% at 75% 20%, rgba(201,162,75,0.10), transparent 70%),
+      radial-gradient(50% 40% at 10% 90%, rgba(61,20,32,0.35), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } }
+
+  .hero-copy .eyebrow{ display:block; margin-bottom:18px; }
+  .hero-copy h1{ font-size:var(--fs-hero); line-height:1.04; }
+  .hero-copy h1 em{ font-style:italic; color:var(--champagne); }
+  .hero-copy p.lede{
+    margin-top:24px;
+    max-width:44ch;
+    color:var(--smoke);
+    font-size:var(--fs-body);
+  }
+  .hero-cta{ margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
+
+  /* hero stage: silhouette + stitch reveal */
+  .hero-stage{
+    position:relative;
+    aspect-ratio:4/3;
+    border:1px solid var(--line);
+    border-radius:var(--radius-card);
+    background:linear-gradient(180deg, var(--gunmetal), var(--obsidian));
+    overflow:hidden;
+  }
+  .hero-stage svg{ width:100%; height:100%; }
+  .hero-stage .silhouette{ fill:none; stroke:var(--thread); stroke-width:1.4; }
+  .hero-stage .quilt-thread{
+    fill:none;
+    stroke:var(--champagne);
+    stroke-width:1.6;
+    stroke-dasharray:520;
+    stroke-dashoffset:520;
+    animation:draw-thread 2.4s var(--ease-precision) 0.4s forwards;
+  }
+  @keyframes draw-thread{ to{ stroke-dashoffset:0; } }
+  .hero-stage figcaption{
+    position:absolute; left:16px; bottom:14px;
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    color:var(--smoke);
+  }
+
+  /* ===== SECTION HEADERS ===== */
+  .section-head{ max-width:56ch; margin-bottom:56px; }
+  .section-head .eyebrow{ display:block; margin-bottom:14px; }
+  .section-head h2{ font-size:var(--fs-h2); }
+  .section-head p{ margin-top:16px; color:var(--smoke); }
+
+  /* ===== SERVICE / EXAMINE CARDS ===== */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  @media (max-width:900px){ .services-grid{ grid-template-columns:1fr; } }
+
+  .examine-card{
+    perspective:1000px;
+  }
+  .examine-inner{
+    position:relative;
+    background:var(--gunmetal);
+    border:1px solid var(--line);
+    border-radius:var(--radius-card);
+    padding:28px;
+    height:100%;
+    transform:rotateX(0deg) rotateY(0deg);
+    transition:transform var(--dur-fast) var(--ease-precision), box-shadow var(--dur-fast) var(--ease-precision);
+    transform-style:preserve-3d;
+    overflow:hidden;
+  }
+  .examine-inner.raised{ box-shadow:var(--shadow-lift); }
+
+  .swatch{
+    position:relative;
+    height:180px;
+    border-radius:var(--radius-card);
+    margin-bottom:22px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    /* SWAP POINT: replace background with real macro photography of stitching / gloss / material */
+    background:var(--gunmetal-2);
+  }
+  .swatch.quilt{
+    background-image:
+      linear-gradient(45deg, transparent 48%, var(--champagne-dim) 49%, var(--champagne-dim) 51%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, var(--champagne-dim) 49%, var(--champagne-dim) 51%, transparent 52%);
+    background-size:28px 28px;
+    background-color:#1A1310;
+    opacity:0.9;
+  }
+  .swatch.gloss{
+    background:linear-gradient(135deg, #14161A 0%, #26292F 45%, #101114 100%);
+  }
+  .swatch.dash{
+    background:
+      repeating-linear-gradient(90deg, rgba(244,239,228,0.05) 0 2px, transparent 2px 24px),
+      #15161A;
+  }
+  .gloss-layer{
+    position:absolute; inset:0;
+    background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.16) 50%, transparent 65%);
+    background-size:220% 220%;
+    background-position:var(--gx,0%) var(--gy,0%);
+    mix-blend-mode:overlay;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity var(--dur-fast) var(--ease-precision);
+  }
+  .examine-inner:hover .gloss-layer,
+  .examine-inner.in-view .gloss-layer{ opacity:1; }
+
+  .examine-inner.in-view .gloss-layer{
+    animation:gloss-sweep var(--dur-gloss) var(--ease-precision) forwards;
+  }
+  @keyframes gloss-sweep{
+    from{ background-position:-20% -20%; }
+    to{ background-position:120% 120%; }
+  }
+
+  .magnify-hint{
+    position:absolute; right:12px; top:12px;
+    width:30px; height:30px;
+    border:1px solid var(--champagne-dim);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono);
+    font-size:14px;
+    color:var(--champagne);
+    background:rgba(10,10,12,0.5);
+  }
+
+  .service-card h3{ font-size:var(--fs-h3); margin-bottom:8px; }
+  .service-card .spec{
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    color:var(--champagne);
+    letter-spacing:0.04em;
+    display:block;
+    margin-bottom:12px;
+  }
+  .service-card p.desc{ color:var(--smoke); font-size:0.95rem; }
+  .service-card .learn{
+    display:inline-block;
+    margin-top:18px;
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ivory);
+    border-bottom:1px solid var(--champagne-dim);
+    padding-bottom:2px;
+  }
+
+  /* ===== MODEL SHOWCASE ===== */
+  .model-strip{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    padding:8px 4px 20px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .model-strip::-webkit-scrollbar{ height:4px; }
+  .model-strip::-webkit-scrollbar-thumb{ background:var(--champagne-dim); }
+
+  .model-card{
+    scroll-snap-align:start;
+    flex:0 0 min(320px, 82vw);
+    background:var(--gunmetal);
+    border:1px solid var(--line);
+    border-radius:var(--radius-card);
+  }
+  .compare{
+    position:relative;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .compare .before, .compare .after{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  /* SWAP POINT: replace these two flat panels with the actual before/after vehicle photography */
+  .compare .before{ background:#111216; color:var(--thread); }
+  .compare .after{
+    background:linear-gradient(135deg,#1B140C,#26200F);
+    color:var(--champagne);
+    clip-path:inset(0 50% 0 0);
+  }
+  .compare input[type="range"]{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    margin:0;
+    opacity:0;
+    cursor:ew-resize;
+  }
+  .compare-handle{
+    position:absolute; top:0; bottom:0;
+    left:50%;
+    width:2px;
+    background:var(--champagne);
+    pointer-events:none;
+    transform:translateX(-1px);
+  }
+  .compare-handle::after{
+    content:'⟷';
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:32px; height:32px;
+    border-radius:50%;
+    background:var(--champagne);
+    color:var(--obsidian);
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+  }
+  .model-meta{ padding:16px 18px 20px; }
+  .model-meta h4{ font-family:var(--font-display); font-size:1.1rem; font-weight:500; margin-bottom:4px; }
+  .model-meta span{ font-family:var(--font-mono); font-size:var(--fs-caption); color:var(--smoke); }
+
+  /* ===== SOCIAL / PORTFOLIO ===== */
+  .social-panel{
+    border:1px solid var(--line);
+    border-radius:var(--radius-card);
+    background:var(--gunmetal);
+    padding:32px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media (max-width:768px){ .social-panel{ grid-template-columns:1fr; } }
+  .social-embed{
+    aspect-ratio:9/16;
+    max-height:560px;
+    background:var(--gunmetal-2);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+  }
+  .social-embed .placeholder{
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    color:var(--smoke);
+    line-height:1.8;
+  }
+  .social-links{ display:flex; gap:16px; margin-top:24px; }
+  .social-icon{
+    width:44px; height:44px;
+    border:1px solid var(--champagne-dim);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color var(--dur-fast) var(--ease-precision), transform var(--dur-fast) var(--ease-precision);
+  }
+  .social-icon:hover, .social-icon:focus-visible{ border-color:var(--champagne); transform:translateY(-2px); }
+  .social-icon svg{ width:18px; height:18px; fill:var(--ivory); }
+
+  /* ===== CONTACT / FOOTER ===== */
+  #contact{ text-align:center; }
+  #contact .eyebrow{ display:block; margin-bottom:14px; }
+  #contact h2{ font-size:var(--fs-h2); max-width:20ch; margin:0 auto 28px; }
+  #contact .btn-pill{ font-size:1rem; padding:18px 36px; }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 0 calc(48px + env(safe-area-inset-bottom));
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:32px;
+  }
+  .footer-col h5{
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--champagne);
+    margin-bottom:14px;
+  }
+  .footer-col p, .footer-col a{ color:var(--smoke); font-size:0.9rem; line-height:1.9; display:block; }
+  .footer-col a:hover, .footer-col a:focus-visible{ color:var(--ivory); }
+  .footer-bottom{
+    margin-top:40px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-family:var(--font-mono);
+    font-size:0.75rem;
+    color:var(--thread);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  /* ===== STICKY MOBILE BOOKING BAR ===== */
+  #booking-bar{
+    display:none;
+    position:fixed;
+    left:0; right:0; bottom:0;
+    z-index:30;
+    background:rgba(23,24,28,0.96);
+    backdrop-filter:blur(14px);
+    border-top:1px solid var(--line);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    gap:10px;
+  }
+  #booking-bar a{
+    flex:1;
+    text-align:center;
+    padding:14px 10px;
+    border-radius:var(--radius-pill);
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  #booking-bar a.call{ background:var(--champagne); color:var(--obsidian); font-weight:700; }
+  #booking-bar a.msg{ border:1px solid var(--champagne-dim); color:var(--ivory); }
+  @media (max-width:767px){
+    #booking-bar{ display:flex; }
+    body{ padding-bottom:78px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .hero-stage .quilt-thread{ animation:none; stroke-dashoffset:0; }
+    .examine-inner{ transition:none; }
+    .examine-inner.in-view .gloss-layer{ animation:none; opacity:0.4; }
+    #stitch-path-progress{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== STITCH LINE (signature global element) ===== -->
+<div id="stitch-line-holder" aria-hidden="true">
+  <svg id="stitch-svg" viewBox="0 0 14 1000" preserveAspectRatio="none">
+    <path id="stitch-path" d="M7,0 L7,1000"></path>
+    <path id="stitch-path-progress" d="M7,0 L7,1000"></path>
+  </svg>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header id="site-header">
+  <div class="wrap">
+    <a href="#hero" class="logo">NATI <span>CAR DECOR</span></a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#tapseri">Tapseri</a></li>
+        <li><a href="#wraps">Wraps</a></li>
+        <li><a href="#interior">Interior</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn-pill" href="tel:0903369492">090 336 9492</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Lebu Mebrat Hail · Addis Ababa</span>
+      <h1>Precision, <em>stitched</em><br>into every ride.</h1>
+      <p class="lede">Bespoke Tapseri upholstery, VVIP exterior wraps and interior finishing for BYD, Vitz and Corolla — built by hand, one seam at a time.</p>
+      <div class="hero-cta">
+        <a class="btn-pill solid" href="tel:0903369492">Book a fitting — 090 336 9492</a>
+        <a class="btn-pill" href="#tapseri">See the work</a>
+      </div>
+    </div>
+    <figure class="hero-stage">
+      <svg viewBox="0 0 400 300" aria-hidden="true">
+        <!-- SWAP POINT: replace this schematic silhouette with a real traced BYD Seagull outline if desired -->
+        <path class="silhouette" d="M40,210 C40,180 70,170 100,168 L130,120 C140,105 160,98 180,98 L250,98 C275,98 295,110 305,130 L335,168 C365,170 385,182 385,210 L385,225 C385,232 379,238 372,238 L350,238 C348,222 335,210 320,210 C305,210 292,222 290,238 L145,238 C143,222 130,210 115,210 C100,210 87,222 85,238 L58,238 C51,238 45,232 45,225 Z"></path>
+        <path class="quilt-thread" d="M150,150 L165,165 L180,150 L195,165 L210,150 L225,165 L240,150 L255,165 L270,150"></path>
+      </svg>
+      <figcaption>BYD Seagull — Tapseri program, 04:12 stitch cycle</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="tapseri">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">01 — Signature Craft</span>
+      <h2>Custom Tapestry, tailored to the seat.</h2>
+      <p>Every Tapseri program is fitted to the exact seat geometry of the model — diamond, waffle or channel quilting, hand-aligned thread by thread.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="examine-card" data-examine>
+        <div class="examine-inner service-card">
+          <div class="swatch quilt">
+            <div class="gloss-layer"></div>
+            <span class="magnify-hint" aria-hidden="true">＋</span>
+          </div>
+          <span class="spec">DIAMOND QUILT · 6mm PITCH</span>
+          <h3>BYD Seagull Tapseri</h3>
+          <p class="desc">Full seat re-cover in premium leatherette with reinforced diamond stitching, matched to factory trim lines.</p>
+          <a class="learn" href="tel:0903369492">Enquire →</a>
+        </div>
+      </article>
+
+      <article class="examine-card" data-examine id="wraps">
+        <div class="examine-inner service-card">
+          <div class="swatch gloss">
+            <div class="gloss-layer"></div>
+            <span class="magnify-hint" aria-hidden="true">＋</span>
+          </div>
+          <span class="spec">GLOSS · MATTE · SATIN</span>
+          <h3>Exterior Wraps &amp; VVIP Finishes</h3>
+          <p class="desc">Full-body vinyl wraps, colour change and paint protection, plus precision window tinting for a finished VVIP stance.</p>
+          <a class="learn" href="tel:0903369492">Enquire →</a>
+        </div>
+      </article>
+
+      <article class="examine-card" data-examine id="interior">
+        <div class="examine-inner service-card">
+          <div class="swatch dash">
+            <div class="gloss-layer"></div>
+            <span class="magnify-hint" aria-hidden="true">＋</span>
+          </div>
+          <span class="spec">DASH · FLOOR · TRIM</span>
+          <h3>Interior Enhancements</h3>
+          <p class="desc">Custom dashboard stickers, premium carpet and flooring upgrades, finished to match the cabin's new identity.</p>
+          <a class="learn" href="tel:0903369492">Enquire →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODEL SHOWCASE ===== -->
+<section id="models">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">02 — Fittings</span>
+      <h2>Built for the models on Addis roads.</h2>
+      <p>Drag each panel to compare before and after — the same precision, model to model.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="model-strip" tabindex="0" aria-label="Vehicle model showcase, scroll horizontally">
+
+      <div class="model-card">
+        <div class="compare" data-compare>
+          <div class="before">Before</div>
+          <div class="after">After</div>
+          <div class="compare-handle"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after: BYD Seagull">
+        </div>
+        <div class="model-meta">
+          <h4>BYD Seagull</h4>
+          <span>Full Tapseri + gloss wrap</span>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="compare" data-compare>
+          <div class="before">Before</div>
+          <div class="after">After</div>
+          <div class="compare-handle"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after: Toyota Vitz">
+        </div>
+        <div class="model-meta">
+          <h4>Toyota Vitz</h4>
+          <span>Interior refresh + dash trim</span>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="compare" data-compare>
+          <div class="before">Before</div>
+          <div class="after">After</div>
+          <div class="compare-handle"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after: Toyota Corolla">
+        </div>
+        <div class="model-meta">
+          <h4>Toyota Corolla</h4>
+          <span>Matte wrap + window tint</span>
+        </div>
+      </div>
+
+      <div class="model-card">
+        <div class="compare" data-compare>
+          <div class="before">Before</div>
+          <div class="after">After</div>
+          <div class="compare-handle"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after: custom build">
+        </div>
+        <div class="model-meta">
+          <h4>Your Vehicle</h4>
+          <span>Custom program on request</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL / PORTFOLIO ===== -->
+<section id="portfolio">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">03 — Proof</span>
+      <h2>Watch the stitch, not just the result.</h2>
+      <p>The full build process — every wrap and every seam — documented on TikTok and Instagram.</p>
+    </div>
+    <div class="social-panel">
+      <div class="social-embed" data-lazy-embed data-platform="tiktok">
+        <p class="placeholder">TikTok portfolio embed loads here on scroll.<br>Replace with official @natichardecor embed code.</p>
+      </div>
+      <div class="social-embed" data-lazy-embed data-platform="instagram">
+        <p class="placeholder">Instagram portfolio embed loads here on scroll.<br>Replace with official @natichardecor embed code.</p>
+      </div>
+    </div>
+    <div class="social-links">
+      <!-- SWAP POINT: replace # with real TikTok and Instagram profile URLs -->
+      <a class="social-icon" href="#" aria-label="Nati Car Decor on TikTok" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-1.02-.9-1.6-2.16-1.6-3.5V2h-3.5v14.4c0 1.5-1.22 2.7-2.7 2.7s-2.7-1.2-2.7-2.7 1.22-2.7 2.7-2.7c.28 0 .55.04.8.12v-3.55a6.2 6.2 0 0 0-.8-.05c-3.45 0-6.25 2.8-6.25 6.25S8.25 22.75 11.7 22.75s6.25-2.8 6.25-6.25V9.66a9.3 9.3 0 0 0 4.55 1.19v-3.5c-1.9 0-3.63-.7-4.9-1.53Z"/></svg>
+      </a>
+      <a class="social-icon" href="#" aria-label="Nati Car Decor on Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c2.7 0 3 .01 4.1.06 1.05.05 1.79.22 2.42.47.66.25 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.62.42 1.36.47 2.42.05 1.1.06 1.4.06 4.1s-.01 3-.06 4.1c-.05 1.05-.22 1.79-.47 2.42-.25.66-.6 1.22-1.16 1.77-.55.55-1.11.9-1.77 1.16-.62.25-1.36.42-2.42.47-1.1.05-1.4.06-4.1.06s-3-.01-4.1-.06c-1.05-.05-1.79-.22-2.42-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.62-.42-1.36-.47-2.42C2.01 15 2 14.7 2 12s.01-3 .06-4.1c.05-1.05.22-1.79.47-2.42.25-.66.6-1.22 1.16-1.77A4.9 4.9 0 0 1 5.46 2.55c.62-.25 1.36-.42 2.42-.47C8.98 2.02 9.3 2 12 2Zm0 1.8c-2.66 0-2.97.01-4.02.06-.86.04-1.32.18-1.63.3-.41.16-.7.35-1.01.66-.31.31-.5.6-.66 1.01-.12.31-.26.77-.3 1.63-.05 1.05-.06 1.36-.06 4.02s.01 2.97.06 4.02c.04.86.18 1.32.3 1.63.16.41.35.7.66 1.01.31.31.6.5 1.01.66.31.12.77.26 1.63.3 1.05.05 1.36.06 4.02.06s2.97-.01 4.02-.06c.86-.04 1.32-.18 1.63-.3.41-.16.7-.35 1.01-.66.31-.31.5-.6.66-1.01.12-.31.26-.77.3-1.63.05-1.05.06-1.36.06-4.02s-.01-2.97-.06-4.02c-.04-.86-.18-1.32-.3-1.63a2.7 2.7 0 0 0-.66-1.01 2.7 2.7 0 0 0-1.01-.66c-.31-.12-.77-.26-1.63-.3-1.05-.05-1.36-.06-4.02-.06Zm0 3.05a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.2-1.99a1.17 1.17 0 1 1-2.33 0 1.17 1.17 0 0 1 2.33 0Z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Book a fitting</span>
+    <h2>Bring the car in. Leave it tailored.</h2>
+    <a class="btn-pill solid" href="tel:0903369492">Call 090 336 9492</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Nati Car Decor</h5>
+        <p>Lebu Mebrat Hail,<br>Addis Ababa, Ethiopia</p>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="tel:0903369492">090 336 9492</a>
+        <a href="#" target="_blank" rel="noopener">TikTok</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div class="footer-col">
+        <h5>Hours</h5>
+        <p>Mon – Sat, 08:00 – 18:00<br>Sunday by appointment</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Nati Car Decor</span>
+      <span>VVIP Auto Styling · Addis Ababa</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== STICKY MOBILE BOOKING BAR ===== -->
+<div id="booking-bar" role="region" aria-label="Booking">
+  <a class="call" href="tel:0903369492">Call now</a>
+  <!-- SWAP POINT: replace # with real WhatsApp/Telegram deep link, e.g. https://wa.me/2519XXXXXXXX -->
+  <a class="msg" href="#" target="_blank" rel="noopener">Message</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Header solidify on scroll ---------- */
+  var header = document.getElementById('site-header');
+  function onHeaderScroll(){
+    if (window.scrollY > 40) header.classList.add('solid');
+    else header.classList.remove('solid');
+  }
+  window.addEventListener('scroll', onHeaderScroll, { passive:true });
+  onHeaderScroll();
+
+  /* ---------- Stitch line: scroll progress ---------- */
+  var stitchProgress = document.getElementById('stitch-path-progress');
+  var stitchLen = 0;
+  function measureStitch(){
+    var docHeight = document.documentElement.scrollHeight;
+    stitchLen = docHeight;
+    var svg = document.getElementById('stitch-svg');
+    svg.setAttribute('viewBox', '0 0 14 ' + docHeight);
+    stitchProgress.setAttribute('d', 'M7,0 L7,' + docHeight);
+    document.getElementById('stitch-path').setAttribute('d', 'M7,0 L7,' + docHeight);
+    stitchProgress.style.strokeDasharray = docHeight;
+    stitchProgress.style.strokeDashoffset = docHeight;
+  }
+
+  var ticking = false;
+  function updateStitchProgress(){
+    var scrollTop = window.scrollY;
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0;
+    var offset = stitchLen - (stitchLen * pct);
+    stitchProgress.style.strokeDashoffset = offset;
+    document.getElementById('stitch-line-holder').style.transform = 'translateY(' + (-scrollTop) + 'px)';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking){
+      requestAnimationFrame(updateStitchProgress);
+      ticking = true;
+    }
+  }, { passive:true });
+  window.addEventListener('resize', measureStitch);
+  measureStitch();
+  updateStitchProgress();
+
+  /* ---------- Examine cards: pointer tilt + gloss (desktop) ---------- */
+  var examineCards = document.querySelectorAll('[data-examine] .examine-inner');
+  var supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (supportsHover && !reduceMotion){
+    examineCards.forEach(function(card){
+      card.addEventListener('pointermove', function(e){
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width;   // 0..1
+        var y = (e.clientY - rect.top) / rect.height;   // 0..1
+        var rotY = (x - 0.5) * 12;   // max ±6deg
+        var rotX = (0.5 - y) * 12;
+        card.style.transform = 'rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+        card.classList.add('raised');
+        var gloss = card.querySelector('.gloss-layer');
+        if (gloss){
+          gloss.style.setProperty('--gx', (x*100) + '%');
+          gloss.style.setProperty('--gy', (y*100) + '%');
+          gloss.style.opacity = 1;
+        }
+      });
+      card.addEventListener('pointerleave', function(){
+        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        card.classList.remove('raised');
+        var gloss = card.querySelector('.gloss-layer');
+        if (gloss) gloss.style.opacity = 0;
+      });
+    });
+  }
+
+  /* ---------- Examine cards: scroll-in reveal (mobile / all) ---------- */
+  if ('IntersectionObserver' in window){
+    var cardObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.35 });
+    examineCards.forEach(function(card){ cardObserver.observe(card); });
+  } else {
+    examineCards.forEach(function(card){ card.classList.add('in-view'); });
+  }
+
+  /* ---------- Magnify tap (touch): radial reveal on the swatch ---------- */
+  document.querySelectorAll('.swatch').forEach(function(swatch){
+    swatch.addEventListener('touchstart', function(e){
+      var rect = swatch.getBoundingClientRect();
+      var touch = e.touches[0];
+      var x = ((touch.clientX - rect.left) / rect.width) * 100;
+      var y = ((touch.clientY - rect.top) / rect.height) * 100;
+      swatch.style.transition = 'clip-path 0ms';
+      swatch.style.clipPath = 'circle(140px at ' + x + '% ' + y + '%)';
+      swatch.querySelector('.gloss-layer').style.opacity = 1;
+    }, { passive:true });
+    swatch.addEventListener('touchend', function(){
+      swatch.style.transition = 'clip-path ' + (reduceMotion ? '0ms' : '400ms') + ' ' + getComputedStyle(document.documentElement).getPropertyValue('--ease-precision');
+      swatch.style.clipPath = 'circle(150% at 50% 50%)';
+    });
+  });
+
+  /* ---------- Before / after compare sliders ---------- */
+  document.querySelectorAll('[data-compare]').forEach(function(compare){
+    var after = compare.querySelector('.after');
+    var handle = compare.querySelector('.compare-handle');
+    var input = compare.querySelector('input[type="range"]');
+    function update(val){
+      after.style.clipPath = 'inset(0 ' + (100 - val) + '% 0 0)';
+      handle.style.left = val + '%';
+    }
+    input.addEventListener('input', function(){ update(input.value); });
+    update(input.value);
+  });
+
+  /* ---------- Lazy-load social embeds on intersection ---------- */
+  var embeds = document.querySelectorAll('[data-lazy-embed]');
+  if ('IntersectionObserver' in window){
+    var embedObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          var el = entry.target;
+          var platform = el.getAttribute('data-platform');
+          // SWAP POINT: inject the real TikTok/Instagram <blockquote>/<iframe> embed code here per platform
+          el.querySelector('.placeholder').innerHTML = 'Loading ' + platform + ' portfolio…';
+          embedObserver.unobserve(el);
+        }
+      });
+    }, { threshold:0.2, rootMargin:'200px 0px' });
+    embeds.forEach(function(el){ embedObserver.observe(el); });
+  }
+
+  /* ---------- Footer year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>
