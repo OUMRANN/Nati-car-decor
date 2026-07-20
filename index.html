@@ -175,14 +175,28 @@
   nav a:hover::after, nav a:focus-visible::after{ width:100%; }
   @media (max-width:900px){ nav{display:none;} }
 
-  /* ===== HERO ===== */
+   /* ===== HERO ===== */
   #hero{
-    min-height:100svh;
-    display:flex;
-    align-items:center;
-    padding-top:120px;
-    padding-bottom:80px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
+  .hero-full-image {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-stage-full {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: 400px;
+  }
+  .full-width-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   #hero::before{
     content:'';
     position:absolute; inset:0;
@@ -564,16 +578,21 @@
 
 <!-- ===== HERO ===== -->
 <section id="hero">
-  <div class="wrap hero-grid">
-    <!-- The Image is now back inside the grid, where it belongs -->
-    <figure class="hero-stage">
-      <img src="Nati.PNG" alt="Nati Car Decor" style="width: 100%; height: auto; display: block;">
-    </figure>
+  <!-- Full-width Image Area -->
+  <figure class="hero-stage" style="margin: 0; padding: 0; width: 100%;">
+    <img src="Nati.PNG" alt="Nati Car Decor" style="width: 100%; display: block; object-fit: cover;">
+  </figure>
 
-    <!-- The text follows directly below or alongside it -->
+  <!-- Title and Location Area -->
+  <div class="wrap hero-header-text" style="padding: 15px 20px;">
+    <h1>NATI CAR DECOR</h1>
+    <span class="eyebrow" style="display: block; margin-top: 5px;">Lebu Mebrat Hail · Addis Ababa</span>
+  </div>
+
+  <!-- The rest of your content stays in the grid -->
+  <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow">Lebu Mebrat Hail · Addis Ababa</span>
-      <h1>Precision, <em>stitched</em><br>into every ride.</h1>
+      <h2>Precision, <em>stitched</em> into every ride.</h2>
       <p class="lede">Bespoke Tapseri upholstery, VVIP exterior wraps and interior finishing for BYD, Vitz and Corolla — built by hand, one seam at a time.</p>
       <div class="hero-cta">
         <a class="btn-pill solid" href="tel:0903369492">Book a fitting — 090 336 9492</a>
@@ -582,7 +601,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- ===== SERVICES ===== -->
 <section id="tapseri">
