@@ -104,40 +104,6 @@
     font-weight:600;
   }
 
-  /* ===== STITCH LINE — signature global element ===== */
-  #stitch-line-holder{
-    position:fixed;
-    top:0; left:0;
-    width:100%;
-    height:100vh;
-    pointer-events:none;
-    z-index:5;
-  }
-  #stitch-svg{
-    position:absolute;
-    left:18px;
-    top:0;
-    height:100vh;
-    width:14px;
-  }
-  #stitch-path{
-    fill:none;
-    stroke:var(--champagne-dim);
-    stroke-width:1.5;
-    stroke-dasharray:6 7;
-    opacity:0.55;
-  }
-  #stitch-path-progress{
-    fill:none;
-    stroke:var(--champagne);
-    stroke-width:1.5;
-    stroke-dasharray:6 7;
-    stroke-dashoffset:0; /* set by JS: total length, animated down to 0 as user scrolls */
-  }
-  @media (max-width:767px){
-    #stitch-svg{ left:8px; width:8px; }
-  }
-
   /* ===== HEADER ===== */
   header{
     position:fixed; top:0; left:0; width:100%;
@@ -175,27 +141,44 @@
   nav a:hover::after, nav a:focus-visible::after{ width:100%; }
   @media (max-width:900px){ nav{display:none;} }
 
-   /* ===== HERO ===== */
+  /* ===== HERO ===== */
   #hero{
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top:80px;
+    padding-bottom:80px;
   }
-  .hero-full-image {
-    position: relative;
-    overflow: hidden;
+
+  /* Full-width hero image: flush with the title block below, zero gap */
+  .hero-full-image{
+    position:relative;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+    line-height:0;        /* kills the inline-image whitespace gap */
+    font-size:0;
   }
-  .hero-stage-full {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    max-height: 400px;
+  .hero-stage-full{
+    width:100%;
+    margin:0;
+    padding:0;
+    max-height:400px;
+    overflow:hidden;
+    line-height:0;
+    display:block;
   }
-  .full-width-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .full-width-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    margin:0;
+    padding:0;
+    vertical-align:top;
   }
+  .hero-header-text{
+    padding:24px 24px 0;   /* zero top padding/margin so text sits flush under the image */
+    margin:0;
+  }
+  .hero-header-text h1{ font-size:clamp(1.8rem, 6vw, 3rem); }
 
   #hero::before{
     content:'';
@@ -210,12 +193,13 @@
     grid-template-columns:1.1fr 0.9fr;
     gap:48px;
     align-items:center;
+    margin-top:40px;
   }
   @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } }
 
   .hero-copy .eyebrow{ display:block; margin-bottom:18px; }
-  .hero-copy h1{ font-size:var(--fs-hero); line-height:1.04; }
-  .hero-copy h1 em{ font-style:italic; color:var(--champagne); }
+  .hero-copy h2{ font-size:var(--fs-hero); line-height:1.04; }
+  .hero-copy h2 em{ font-style:italic; color:var(--champagne); }
   .hero-copy p.lede{
     margin-top:24px;
     max-width:44ch;
@@ -223,33 +207,6 @@
     font-size:var(--fs-body);
   }
   .hero-cta{ margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
-
-  /* hero stage: silhouette + stitch reveal */
-  .hero-stage{
-    position:relative;
-    aspect-ratio:4/3;
-    border:1px solid var(--line);
-    border-radius:var(--radius-card);
-    background:linear-gradient(180deg, var(--gunmetal), var(--obsidian));
-    overflow:hidden;
-  }
-  .hero-stage svg{ width:100%; height:100%; }
-  .hero-stage .silhouette{ fill:none; stroke:var(--thread); stroke-width:1.4; }
-  .hero-stage .quilt-thread{
-    fill:none;
-    stroke:var(--champagne);
-    stroke-width:1.6;
-    stroke-dasharray:520;
-    stroke-dashoffset:520;
-    animation:draw-thread 2.4s var(--ease-precision) 0.4s forwards;
-  }
-  @keyframes draw-thread{ to{ stroke-dashoffset:0; } }
-  .hero-stage figcaption{
-    position:absolute; left:16px; bottom:14px;
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    color:var(--smoke);
-  }
 
   /* ===== SECTION HEADERS ===== */
   .section-head{ max-width:56ch; margin-bottom:56px; }
@@ -542,22 +499,12 @@
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
-    .hero-stage .quilt-thread{ animation:none; stroke-dashoffset:0; }
     .examine-inner{ transition:none; }
     .examine-inner.in-view .gloss-layer{ animation:none; opacity:0.4; }
-    #stitch-path-progress{ transition:none; }
   }
 </style>
 </head>
 <body>
-
-<!-- ===== STITCH LINE (signature global element) ===== -->
-<div id="stitch-line-holder" aria-hidden="true">
-  <svg id="stitch-svg" viewBox="0 0 14 1000" preserveAspectRatio="none">
-    <path id="stitch-path" d="M7,0 L7,1000"></path>
-    <path id="stitch-path-progress" d="M7,0 L7,1000"></path>
-  </svg>
-</div>
 
 <!-- ===== HEADER ===== -->
 <header id="site-header">
@@ -578,18 +525,20 @@
 
 <!-- ===== HERO ===== -->
 <section id="hero">
-  <!-- Full-width Image Area -->
-  <figure class="hero-stage" style="margin: 0; padding: 0; width: 100%;">
-    <img src="Nati.PNG" alt="Nati Car Decor" style="width: 100%; display: block; object-fit: cover;">
-  </figure>
-
-  <!-- Title and Location Area -->
-  <div class="wrap hero-header-text" style="padding: 15px 20px;">
-    <h1>NATI CAR DECOR</h1>
-    <span class="eyebrow" style="display: block; margin-top: 5px;">Lebu Mebrat Hail · Addis Ababa</span>
+  <!-- Full-width Image Area — flush with the title block below -->
+  <div class="hero-full-image">
+    <figure class="hero-stage-full">
+      <img src="Nati.PNG" alt="Nati Car Decor" class="full-width-img">
+    </figure>
   </div>
 
-  <!-- The rest of your content stays in the grid -->
+  <!-- Title and Location Area — zero gap from image above -->
+  <div class="wrap hero-header-text">
+    <h1>NATI CAR DECOR</h1>
+    <span class="eyebrow" style="display:block; margin-top:5px;">Lebu Mebrat Hail · Addis Ababa</span>
+  </div>
+
+  <!-- Supporting copy and CTAs -->
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h2>Precision, <em>stitched</em> into every ride.</h2>
@@ -808,40 +757,6 @@
   }
   window.addEventListener('scroll', onHeaderScroll, { passive:true });
   onHeaderScroll();
-
-  /* ---------- Stitch line: scroll progress ---------- */
-  var stitchProgress = document.getElementById('stitch-path-progress');
-  var stitchLen = 0;
-  function measureStitch(){
-    var docHeight = document.documentElement.scrollHeight;
-    stitchLen = docHeight;
-    var svg = document.getElementById('stitch-svg');
-    svg.setAttribute('viewBox', '0 0 14 ' + docHeight);
-    stitchProgress.setAttribute('d', 'M7,0 L7,' + docHeight);
-    document.getElementById('stitch-path').setAttribute('d', 'M7,0 L7,' + docHeight);
-    stitchProgress.style.strokeDasharray = docHeight;
-    stitchProgress.style.strokeDashoffset = docHeight;
-  }
-
-  var ticking = false;
-  function updateStitchProgress(){
-    var scrollTop = window.scrollY;
-    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0;
-    var offset = stitchLen - (stitchLen * pct);
-    stitchProgress.style.strokeDashoffset = offset;
-    document.getElementById('stitch-line-holder').style.transform = 'translateY(' + (-scrollTop) + 'px)';
-    ticking = false;
-  }
-  window.addEventListener('scroll', function(){
-    if (!ticking){
-      requestAnimationFrame(updateStitchProgress);
-      ticking = true;
-    }
-  }, { passive:true });
-  window.addEventListener('resize', measureStitch);
-  measureStitch();
-  updateStitchProgress();
 
   /* ---------- Examine cards: pointer tilt + gloss (desktop) ---------- */
   var examineCards = document.querySelectorAll('[data-examine] .examine-inner');
