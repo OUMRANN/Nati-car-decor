@@ -503,6 +503,14 @@
     .examine-inner{ transition:none; }
     .examine-inner.in-view .gloss-layer{ animation:none; opacity:0.4; }
   }
+.service-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
 </style>
 </head>
 <body>
@@ -559,17 +567,18 @@
 
     <div class="services-grid">
 
-      <article class="examine-card" data-examine>
-        <div class="examine-inner service-card">
-          <div class="swatch quilt">
-            <div class="gloss-layer"></div>
-          </div>
-          <span class="spec">DIAMOND QUILT · 6mm PITCH</span>
-          <h3>BYD Seagull Tapseri</h3>
-          <p class="desc">Full seat re-cover in premium leatherette with reinforced diamond stitching, matched to factory trim lines.</p>
-          <a class="learn" href="tel:+251903369492">Enquire →</a>
-        </div>
-      </article>
+<article class="examine-card" data-examine>
+  <div class="examine-inner service-card">
+    <!-- Replace the swatch div with your image -->
+    <img src="your-image-url.jpg" alt="BYD Seagull custom seat with premium leatherette and gold diamond stitching" class="service-img">
+    
+    <span class="spec">DIAMOND QUILT · 6mm PITCH</span>
+    <h3>BYD Seagull Tapseri</h3>
+    <p class="desc">Full seat re-cover in premium leatherette with reinforced diamond stitching, matched to factory trim lines.</p>
+    <a class="learn" href="tel:+251903369492">Enquire →</a>
+  </div>
+</article>
+
 
       <article class="examine-card" data-examine id="wraps">
         <div class="examine-inner service-card">
