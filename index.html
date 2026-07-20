@@ -7,7 +7,7 @@
 <meta name="description" content="Nati Car Decor — bespoke Tapseri upholstery, VVIP exterior wraps and interior enhancements for BYD, Vitz and Corolla. Lebu Mebrat Hail, Addis Ababa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,500&family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --obsidian:#0A0A0C;
@@ -15,6 +15,7 @@
     --gunmetal-2:#1F2025;
     --champagne:#C9A24B;
     --champagne-dim:#8A7238;
+    --luxury-gold:#C5A059;
     --burgundy:#3D1420;
     --ivory:#F4EFE4;
     --smoke:#9A9CA5;
@@ -23,6 +24,7 @@
     --focus-ring:#C9A24B;
 
     --font-display:'Bodoni Moda', serif;
+    --font-luxury:'Playfair Display', serif;
     --font-body:'Manrope', sans-serif;
     --font-mono:'IBM Plex Mono', monospace;
 
@@ -72,6 +74,20 @@
     letter-spacing:var(--tracking-eyebrow);
     text-transform:uppercase;
     color:var(--champagne);
+  }
+
+  /* Luxury location marque — floating, transparent, serif */
+  .luxury-location{
+    display:block;
+    font-family:var(--font-luxury);
+    font-weight:500;
+    font-style:normal;
+    font-size:clamp(0.7rem, 1.8vw, 0.95rem);
+    text-transform:uppercase;
+    letter-spacing:6px;
+    color:var(--luxury-gold);
+    background:transparent;
+    margin-top:14px;
   }
 
   .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
@@ -147,13 +163,12 @@
     padding-bottom:80px;
   }
 
-  /* Full-width hero image: flush with the title block below, zero gap */
   .hero-full-image{
     position:relative;
     overflow:hidden;
     margin:0;
     padding:0;
-    line-height:0;        /* kills the inline-image whitespace gap */
+    line-height:0;
     font-size:0;
   }
   .hero-stage-full{
@@ -175,7 +190,7 @@
     vertical-align:top;
   }
   .hero-header-text{
-    padding:24px 24px 0;   /* zero top padding/margin so text sits flush under the image */
+    padding:24px 24px 0;
     margin:0;
   }
   .hero-header-text h1{ font-size:clamp(1.8rem, 6vw, 3rem); }
@@ -214,30 +229,29 @@
   .section-head h2{ font-size:var(--fs-h2); }
   .section-head p{ margin-top:16px; color:var(--smoke); }
 
-  /* ===== SERVICE / EXAMINE CARDS ===== */
+  /* ===== SERVICE / EXAMINE CARDS — floating, borderless, minimal ===== */
   .services-grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
-    gap:24px;
+    gap:56px;
   }
-  @media (max-width:900px){ .services-grid{ grid-template-columns:1fr; } }
+  @media (max-width:900px){ .services-grid{ grid-template-columns:1fr; gap:64px; } }
 
   .examine-card{
     perspective:1000px;
   }
   .examine-inner{
     position:relative;
-    background:var(--gunmetal);
-    border:1px solid var(--line);
-    border-radius:var(--radius-card);
-    padding:28px;
+    background:transparent;
+    border:none;
+    border-radius:0;
+    padding:0;
     height:100%;
     transform:rotateX(0deg) rotateY(0deg);
-    transition:transform var(--dur-fast) var(--ease-precision), box-shadow var(--dur-fast) var(--ease-precision);
+    transition:transform var(--dur-fast) var(--ease-precision), filter var(--dur-fast) var(--ease-precision);
     transform-style:preserve-3d;
-    overflow:hidden;
   }
-  .examine-inner.raised{ box-shadow:var(--shadow-lift); }
+  .examine-inner.raised{ filter:drop-shadow(0 24px 40px rgba(0,0,0,0.45)); }
 
   .swatch{
     position:relative;
@@ -245,7 +259,7 @@
     border-radius:var(--radius-card);
     margin-bottom:22px;
     overflow:hidden;
-    border:1px solid var(--line);
+    border:none;
     /* SWAP POINT: replace background with real macro photography of stitching / gloss / material */
     background:var(--gunmetal-2);
   }
@@ -284,18 +298,6 @@
   @keyframes gloss-sweep{
     from{ background-position:-20% -20%; }
     to{ background-position:120% 120%; }
-  }
-
-  .magnify-hint{
-    position:absolute; right:12px; top:12px;
-    width:30px; height:30px;
-    border:1px solid var(--champagne-dim);
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-mono);
-    font-size:14px;
-    color:var(--champagne);
-    background:rgba(10,10,12,0.5);
   }
 
   .service-card h3{ font-size:var(--fs-h3); margin-bottom:8px; }
@@ -353,7 +355,6 @@
     letter-spacing:0.06em;
     text-transform:uppercase;
   }
-  /* SWAP POINT: replace these two flat panels with the actual before/after vehicle photography */
   .compare .before{ background:#111216; color:var(--thread); }
   .compare .after{
     background:linear-gradient(135deg,#1B140C,#26200F);
@@ -519,31 +520,28 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn-pill" href="tel:0903369492">090 336 9492</a>
+    <a class="btn-pill" href="tel:+251903369492">090 336 9492</a>
   </div>
 </header>
 
 <!-- ===== HERO ===== -->
 <section id="hero">
-  <!-- Full-width Image Area — flush with the title block below -->
   <div class="hero-full-image">
     <figure class="hero-stage-full">
       <img src="Nati.PNG" alt="Nati Car Decor" class="full-width-img">
     </figure>
   </div>
 
-  <!-- Title and Location Area — zero gap from image above -->
-  <div class="wrap hero-header-text"
-    <span class="eyebrow" style="display:block; margin-top:5px;">Lebu Mebrat Hail · Addis Ababa</span>
+  <div class="wrap hero-header-text">
+    <span class="luxury-location">Lebu Mebrat Hail · Addis Ababa</span>
   </div>
 
-  <!-- Supporting copy and CTAs -->
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h2>Precision, <em>stitched</em> into every ride.</h2>
       <p class="lede">Bespoke Tapseri upholstery, VVIP exterior wraps and interior finishing for BYD, Vitz and Corolla — built by hand, one seam at a time.</p>
       <div class="hero-cta">
-        <a class="btn-pill solid" href="tel:0903369492">Book a fitting — 090 336 9492</a>
+        <a class="btn-pill solid" href="tel:+251903369492">Book a fitting — 090 336 9492</a>
         <a class="btn-pill" href="#tapseri">See the work</a>
       </div>
     </div>
@@ -565,12 +563,11 @@
         <div class="examine-inner service-card">
           <div class="swatch quilt">
             <div class="gloss-layer"></div>
-            <span class="magnify-hint" aria-hidden="true">＋</span>
           </div>
           <span class="spec">DIAMOND QUILT · 6mm PITCH</span>
           <h3>BYD Seagull Tapseri</h3>
           <p class="desc">Full seat re-cover in premium leatherette with reinforced diamond stitching, matched to factory trim lines.</p>
-          <a class="learn" href="tel:0903369492">Enquire →</a>
+          <a class="learn" href="tel:+251903369492">Enquire →</a>
         </div>
       </article>
 
@@ -578,12 +575,11 @@
         <div class="examine-inner service-card">
           <div class="swatch gloss">
             <div class="gloss-layer"></div>
-            <span class="magnify-hint" aria-hidden="true">＋</span>
           </div>
           <span class="spec">GLOSS · MATTE · SATIN</span>
           <h3>Exterior Wraps &amp; VVIP Finishes</h3>
           <p class="desc">Full-body vinyl wraps, colour change and paint protection, plus precision window tinting for a finished VVIP stance.</p>
-          <a class="learn" href="tel:0903369492">Enquire →</a>
+          <a class="learn" href="tel:+251903369492">Enquire →</a>
         </div>
       </article>
 
@@ -591,12 +587,11 @@
         <div class="examine-inner service-card">
           <div class="swatch dash">
             <div class="gloss-layer"></div>
-            <span class="magnify-hint" aria-hidden="true">＋</span>
           </div>
           <span class="spec">DASH · FLOOR · TRIM</span>
           <h3>Interior Enhancements</h3>
           <p class="desc">Custom dashboard stickers, premium carpet and flooring upgrades, finished to match the cabin's new identity.</p>
-          <a class="learn" href="tel:0903369492">Enquire →</a>
+          <a class="learn" href="tel:+251903369492">Enquire →</a>
         </div>
       </article>
 
@@ -637,7 +632,7 @@
   <div class="wrap">
     <span class="eyebrow">Book a fitting</span>
     <h2>Bring the car in. Leave it tailored.</h2>
-    <a class="btn-pill solid" href="tel:0903369492">Call 090 336 9492</a>
+    <a class="btn-pill solid" href="tel:+251903369492">Call 090 336 9492</a>
   </div>
 </section>
 
@@ -651,7 +646,7 @@
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
-        <a href="tel:0903369492">090 336 9492</a>
+        <a href="tel:+251903369492">090 336 9492</a>
         <a href="#" target="_blank" rel="noopener">TikTok</a>
         <a href="#" target="_blank" rel="noopener">Instagram</a>
       </div>
@@ -669,9 +664,8 @@
 
 <!-- ===== STICKY MOBILE BOOKING BAR ===== -->
 <div id="booking-bar" role="region" aria-label="Booking">
-  <a class="call" href="tel:0903369492">Call now</a>
-  <!-- SWAP POINT: replace # with real WhatsApp/Telegram deep link, e.g. https://wa.me/2519XXXXXXXX -->
-  <a class="msg" href="#" target="_blank" rel="noopener">Message</a>
+  <a class="call" href="tel:+251903369492">Call now</a>
+  <a class="msg" href="https://wa.me/251903369492" target="_blank" rel="noopener">Message</a>
 </div>
 
 <script>
@@ -697,9 +691,9 @@
     examineCards.forEach(function(card){
       card.addEventListener('pointermove', function(e){
         var rect = card.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width;   // 0..1
-        var y = (e.clientY - rect.top) / rect.height;   // 0..1
-        var rotY = (x - 0.5) * 12;   // max ±6deg
+        var x = (e.clientX - rect.left) / rect.width;
+        var y = (e.clientY - rect.top) / rect.height;
+        var rotY = (x - 0.5) * 12;
         var rotX = (0.5 - y) * 12;
         card.style.transform = 'rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
         card.classList.add('raised');
@@ -772,7 +766,6 @@
         if (entry.isIntersecting){
           var el = entry.target;
           var platform = el.getAttribute('data-platform');
-          // SWAP POINT: inject the real TikTok/Instagram <blockquote>/<iframe> embed code here per platform
           el.querySelector('.placeholder').innerHTML = 'Loading ' + platform + ' portfolio…';
           embedObserver.unobserve(el);
         }
