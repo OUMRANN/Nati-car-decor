@@ -2,807 +2,621 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nati Car Decor — VVIP Auto Styling, Addis Ababa</title>
-<meta name="description" content="Nati Car Decor — bespoke Tapseri upholstery, VVIP exterior wraps and interior enhancements for BYD, Vitz and Corolla. Lebu Mebrat Hail, Addis Ababa.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nati Car Decor | Premium Car Interior Design & Detailing – Addis Ababa</title>
+<meta name="description" content="Nati Car Decor – Ultimate style and elegance for your ride. Custom seat covers, Android screens, interior lighting, floor mats, and steering wheel wraps in Addis Ababa, Ethiopia.">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          charcoal: {
+            DEFAULT: '#0e0e10',
+            light: '#17171a',
+            lighter: '#202024',
+          },
+          gold: {
+            DEFAULT: '#c8a45d',
+            light: '#e0c184',
+            dark: '#9c7c3f',
+          }
+        },
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif'],
+          serif: ['Playfair Display', 'serif'],
+        }
+      }
+    }
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,500&family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --obsidian:#0A0A0C;
-    --gunmetal:#17181C;
-    --gunmetal-2:#1F2025;
-    --champagne:#C9A24B;
-    --champagne-dim:#8A7238;
-    --luxury-gold:#C5A059;
-    --burgundy:#3D1420;
-    --ivory:#F4EFE4;
-    --smoke:#9A9CA5;
-    --thread:#6B6D74;
-    --line:rgba(244,239,228,0.08);
-    --focus-ring:#C9A24B;
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background-color: #0e0e10; }
+  h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
 
-    --font-display:'Bodoni Moda', serif;
-    --font-luxury:'Playfair Display', serif;
-    --font-body:'Manrope', sans-serif;
-    --font-mono:'IBM Plex Mono', monospace;
-
-    --fs-hero:clamp(2.4rem, 9vw, 5.5rem);
-    --fs-h2:clamp(1.8rem, 5vw, 3rem);
-    --fs-h3:clamp(1.25rem, 3vw, 1.75rem);
-    --fs-body:clamp(1rem, 2.2vw, 1.125rem);
-    --fs-caption:clamp(0.75rem, 1.6vw, 0.875rem);
-    --tracking-eyebrow:0.18em;
-
-    --space:8px;
-    --radius-card:2px;
-    --radius-pill:999px;
-    --shadow-lift:0 24px 60px -20px rgba(0,0,0,0.6);
-    --glow-champagne:0 0 40px -10px rgba(201,162,75,0.35);
-
-    --ease-precision:cubic-bezier(0.22,1,0.36,1);
-    --dur-fast:180ms;
-    --dur-reveal:700ms;
-    --dur-gloss:1400ms;
+  .gold-gradient-text {
+    background: linear-gradient(90deg, #e0c184, #c8a45d 50%, #9c7c3f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--obsidian);
-    color:var(--ivory);
-    font-family:var(--font-body);
-    font-size:var(--fs-body);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+  .btn-primary {
+    background: linear-gradient(135deg, #e0c184, #c8a45d);
+    color: #0e0e10;
+    transition: all 0.3s ease;
   }
-  img,svg{display:block; max-width:100%;}
-  a{color:inherit; text-decoration:none;}
-  h1,h2,h3{font-family:var(--font-display); font-weight:500; margin:0; letter-spacing:0.01em;}
-  p{margin:0;}
-  ul{margin:0; padding:0; list-style:none;}
-  button{font-family:inherit; cursor:pointer; background:none; border:none; color:inherit;}
-
-  :focus-visible{outline:2px solid var(--focus-ring); outline-offset:3px;}
-
-  .eyebrow{
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    letter-spacing:var(--tracking-eyebrow);
-    text-transform:uppercase;
-    color:var(--champagne);
+  .btn-primary:hover {
+    box-shadow: 0 8px 30px rgba(200,164,93,0.35);
+    transform: translateY(-2px);
   }
 
-  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
-  section{position:relative; padding:calc(var(--space)*14) 0;}
-
-  .btn-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:14px 28px;
-    border-radius:var(--radius-pill);
-    border:1px solid var(--champagne-dim);
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--ivory);
-    transition:border-color var(--dur-fast) var(--ease-precision), box-shadow var(--dur-fast) var(--ease-precision), transform var(--dur-fast) var(--ease-precision);
-    white-space:nowrap;
+  .btn-outline {
+    border: 1.5px solid rgba(200,164,93,0.6);
+    color: #e0c184;
+    transition: all 0.3s ease;
   }
-  .btn-pill:hover, .btn-pill:focus-visible{
-    border-color:var(--champagne);
-    box-shadow:var(--glow-champagne);
-    transform:translateY(-1px);
-  }
-  .btn-pill.solid{
-    background:var(--champagne);
-    color:var(--obsidian);
-    border-color:var(--champagne);
-    font-weight:600;
+  .btn-outline:hover {
+    background: rgba(200,164,93,0.1);
+    border-color: #e0c184;
   }
 
-  /* ===== HEADER ===== */
-  header{
-    position:fixed; top:0; left:0; width:100%;
-    z-index:20;
-    padding:18px 0;
-    transition:background var(--dur-reveal) var(--ease-precision), backdrop-filter var(--dur-reveal) var(--ease-precision), border-color var(--dur-reveal) var(--ease-precision);
-    border-bottom:1px solid transparent;
+  .nav-link {
+    position: relative;
   }
-  header.solid{
-    background:rgba(23,24,28,0.92);
-    backdrop-filter:blur(12px);
-    border-bottom-color:var(--line);
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 1.5px;
+    background: #c8a45d;
+    transition: width 0.3s ease;
   }
-  header .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px;}
-  .logo{font-family:var(--font-display); font-size:1.25rem; letter-spacing:0.02em;}
-  .logo span{color:var(--champagne);}
-  nav ul{display:flex; gap:32px;}
-  nav a{
-    font-size:var(--fs-caption);
-    font-family:var(--font-mono);
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--smoke);
-    position:relative;
-    padding-bottom:4px;
-  }
-  nav a::after{
-    content:'';
-    position:absolute; left:0; bottom:0;
-    width:0; height:1px;
-    background:var(--champagne);
-    transition:width var(--dur-fast) var(--ease-precision);
-  }
-  nav a:hover, nav a:focus-visible{ color:var(--ivory); }
-  nav a:hover::after, nav a:focus-visible::after{ width:100%; }
-  @media (max-width:900px){ nav{display:none;} }
+  .nav-link:hover::after { width: 100%; }
 
-  /* ===== HERO ===== */
-  #hero{
-    padding-top:80px;
-    padding-bottom:80px;
+  .card-glow {
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .card-glow:hover {
+    border-color: rgba(200,164,93,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,164,93,0.15);
   }
 
-  .hero-full-image{
-    position:relative;
-    overflow:hidden;
-    margin:0;
-    padding:0;
-    line-height:0;
-    font-size:0;
-  }
-  .hero-stage-full{
-    width:100%;
-    margin:0;
-    padding:0;
-    max-height:400px;
-    overflow:hidden;
-    line-height:0;
-    display:block;
-  }
-  .full-width-img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    margin:0;
-    padding:0;
-    vertical-align:top;
-  }
-  .hero-header-text{
-    padding:24px 24px 0;
-    margin:0;
-  }
-  .hero-header-text h1{ font-size:clamp(1.8rem, 6vw, 3rem); }
-
-  #hero::before{
-    content:'';
-    position:absolute; inset:0;
+  .hero-bg {
     background:
-      radial-gradient(60% 50% at 75% 20%, rgba(201,162,75,0.10), transparent 70%),
-      radial-gradient(50% 40% at 10% 90%, rgba(61,20,32,0.35), transparent 70%);
-    pointer-events:none;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:48px;
-    align-items:center;
-    margin-top:40px;
-  }
-  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } }
-
-  .hero-copy .eyebrow{ display:block; margin-bottom:18px; }
-  .hero-copy h2{ font-size:var(--fs-hero); line-height:1.04; }
-  .hero-copy h2 em{ font-style:italic; color:var(--champagne); }
-  .hero-copy p.lede{
-    margin-top:24px;
-    max-width:44ch;
-    color:var(--smoke);
-    font-size:var(--fs-body);
-  }
-  .hero-cta{ margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
-
-  /* ===== SECTION HEADERS ===== */
-  .section-head{ max-width:56ch; margin-bottom:56px; }
-  .section-head .eyebrow{ display:block; margin-bottom:14px; }
-  .section-head h2{ font-size:var(--fs-h2); }
-  .section-head p{ margin-top:16px; color:var(--smoke); }
-
-  /* ===== SERVICE / EXAMINE CARDS — floating, borderless, minimal ===== */
-  .services-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:56px;
-  }
-  @media (max-width:900px){ .services-grid{ grid-template-columns:1fr; gap:64px; } }
-
-  .examine-card{
-    perspective:1000px;
-  }
-  .examine-inner{
-    position:relative;
-    background:transparent;
-    border:none;
-    border-radius:0;
-    padding:0;
-    height:100%;
-    transform:rotateX(0deg) rotateY(0deg);
-    transition:transform var(--dur-fast) var(--ease-precision), filter var(--dur-fast) var(--ease-precision);
-    transform-style:preserve-3d;
-  }
-  .examine-inner.raised{ filter:drop-shadow(0 24px 40px rgba(0,0,0,0.45)); }
-
-  .swatch{
-    position:relative;
-    height:180px;
-    border-radius:var(--radius-card);
-    margin-bottom:22px;
-    overflow:hidden;
-    border:none;
-    background:var(--gunmetal-2);
-  }
-  .swatch.quilt{
-    background-image:
-      linear-gradient(45deg, transparent 48%, var(--champagne-dim) 49%, var(--champagne-dim) 51%, transparent 52%),
-      linear-gradient(-45deg, transparent 48%, var(--champagne-dim) 49%, var(--champagne-dim) 51%, transparent 52%);
-    background-size:28px 28px;
-    background-color:#1A1310;
-    opacity:0.9;
-  }
-  .swatch.gloss{
-    background:linear-gradient(135deg, #14161A 0%, #26292F 45%, #101114 100%);
-  }
-  .swatch.dash{
-    background:
-      repeating-linear-gradient(90deg, rgba(244,239,228,0.05) 0 2px, transparent 2px 24px),
-      #15161A;
-  }
-  .gloss-layer{
-    position:absolute; inset:0;
-    background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.16) 50%, transparent 65%);
-    background-size:220% 220%;
-    background-position:var(--gx,0%) var(--gy,0%);
-    mix-blend-mode:overlay;
-    pointer-events:none;
-    opacity:0;
-    transition:opacity var(--dur-fast) var(--ease-precision);
-  }
-  .examine-inner:hover .gloss-layer,
-  .examine-inner.in-view .gloss-layer{ opacity:1; }
-
-  .examine-inner.in-view .gloss-layer{
-    animation:gloss-sweep var(--dur-gloss) var(--ease-precision) forwards;
-  }
-  @keyframes gloss-sweep{
-    from{ background-position:-20% -20%; }
-    to{ background-position:120% 120%; }
+      linear-gradient(180deg, rgba(14,14,16,0.55) 0%, rgba(14,14,16,0.85) 60%, #0e0e10 100%),
+      url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920&auto=format&fit=crop')
+      center/cover no-repeat;
   }
 
-  .service-card h3{ font-size:var(--fs-h3); margin-bottom:8px; }
-  .service-card .spec{
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    color:var(--champagne);
-    letter-spacing:0.04em;
-    display:block;
-    margin-bottom:12px;
+  .gallery-item {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
   }
-  .service-card p.desc{ color:var(--smoke); font-size:0.95rem; }
-  .service-card .learn{
-    display:inline-block;
-    margin-top:18px;
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    color:var(--ivory);
-    border-bottom:1px solid var(--champagne-dim);
-    padding-bottom:2px;
+  .gallery-item img {
+    transition: transform 0.6s ease, filter 0.4s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+  .gallery-overlay {
+    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 55%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  .divider-gold {
+    width: 70px; height: 3px;
+    background: linear-gradient(90deg, #c8a45d, #e0c184);
   }
 
-  /* ===== SOCIAL / PORTFOLIO — borderless callout cards ===== */
-  .social-panel{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:32px;
+  #mobile-menu {
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
   }
-  @media (max-width:768px){ .social-panel{ grid-template-columns:1fr; gap:24px; } }
-
-  .social-callout{
-    display:flex;
-    align-items:center;
-    gap:20px;
-    padding:28px 4px;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    transition:border-color var(--dur-fast) var(--ease-precision), transform var(--dur-fast) var(--ease-precision);
-  }
-  .social-callout:hover, .social-callout:focus-visible{
-    border-color:var(--champagne-dim);
-    transform:translateX(4px);
-  }
-  .social-callout .icon-ring{
-    flex:0 0 auto;
-    width:52px; height:52px;
-    border:1px solid var(--champagne-dim);
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    transition:border-color var(--dur-fast) var(--ease-precision);
-  }
-  .social-callout:hover .icon-ring{ border-color:var(--champagne); }
-  .social-callout .icon-ring svg{ width:20px; height:20px; fill:var(--ivory); }
-  .social-callout .callout-text{ flex:1 1 auto; }
-  .social-callout .callout-text .platform{
-    font-family:var(--font-display);
-    font-size:1.15rem;
-    color:var(--ivory);
-    margin-bottom:4px;
-  }
-  .social-callout .callout-text .handle{
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    color:var(--smoke);
-    letter-spacing:0.02em;
-  }
-  .social-callout .arrow{
-    flex:0 0 auto;
-    font-family:var(--font-mono);
-    font-size:1.1rem;
-    color:var(--champagne);
-    transition:transform var(--dur-fast) var(--ease-precision);
-  }
-  .social-callout:hover .arrow{ transform:translateX(4px); }
-
-  /* ===== MODEL SHOWCASE ===== */
-  .model-strip{
-    display:flex;
-    gap:20px;
-    overflow-x:auto;
-    padding:8px 4px 20px;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-  }
-  .model-strip::-webkit-scrollbar{ height:4px; }
-  .model-strip::-webkit-scrollbar-thumb{ background:var(--champagne-dim); }
-
-  .model-card{
-    scroll-snap-align:start;
-    flex:0 0 min(320px, 82vw);
-    background:var(--gunmetal);
-    border:1px solid var(--line);
-    border-radius:var(--radius-card);
-  }
-  .compare{
-    position:relative;
-    aspect-ratio:4/3;
-    overflow:hidden;
-    border-bottom:1px solid var(--line);
-  }
-  .compare .before, .compare .after{
-    position:absolute; inset:0;
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-  }
-  .compare .before{ background:#111216; color:var(--thread); }
-  .compare .after{
-    background:linear-gradient(135deg,#1B140C,#26200F);
-    color:var(--champagne);
-    clip-path:inset(0 50% 0 0);
-  }
-  .compare input[type="range"]{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    margin:0;
-    opacity:0;
-    cursor:ew-resize;
-  }
-  .compare-handle{
-    position:absolute; top:0; bottom:0;
-    left:50%;
-    width:2px;
-    background:var(--champagne);
-    pointer-events:none;
-    transform:translateX(-1px);
-  }
-  .compare-handle::after{
-    content:'⟷';
-    position:absolute; top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    width:32px; height:32px;
-    border-radius:50%;
-    background:var(--champagne);
-    color:var(--obsidian);
-    display:flex; align-items:center; justify-content:center;
-    font-size:14px;
-  }
-  .model-meta{ padding:16px 18px 20px; }
-  .model-meta h4{ font-family:var(--font-display); font-size:1.1rem; font-weight:500; margin-bottom:4px; }
-  .model-meta span{ font-family:var(--font-mono); font-size:var(--fs-caption); color:var(--smoke); }
-
-  /* ===== CONTACT / FOOTER ===== */
-  #contact{ text-align:center; }
-  #contact .eyebrow{ display:block; margin-bottom:14px; }
-  #contact h2{ font-size:var(--fs-h2); max-width:20ch; margin:0 auto 28px; }
-  #contact .btn-pill{ font-size:1rem; padding:18px 36px; }
-
-  footer{
-    border-top:1px solid var(--line);
-    padding:48px 0 calc(48px + env(safe-area-inset-bottom));
-  }
-  .footer-grid{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:32px;
-  }
-  .footer-col h5{
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--champagne);
-    margin-bottom:14px;
-  }
-  .footer-col p, .footer-col a{ color:var(--smoke); font-size:0.9rem; line-height:1.9; display:block; }
-  .footer-col a:hover, .footer-col a:focus-visible{ color:var(--ivory); }
-
-  /* Location link — minimal, borderless, luxury */
-  .location-link{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-top:6px;
-    font-family:var(--font-mono);
-    font-size:0.9rem;
-    color:var(--smoke);
-    border-bottom:1px solid transparent;
-    transition:color var(--dur-fast) var(--ease-precision), border-color var(--dur-fast) var(--ease-precision);
-  }
-  .location-link svg{ width:14px; height:14px; fill:var(--champagne); flex:0 0 auto; }
-  .location-link:hover, .location-link:focus-visible{
-    color:var(--ivory);
-    border-color:var(--champagne-dim);
+  #mobile-menu.open {
+    max-height: 500px;
+    opacity: 1;
   }
 
-  .footer-bottom{
-    margin-top:40px;
-    padding-top:24px;
-    border-top:1px solid var(--line);
-    font-family:var(--font-mono);
-    font-size:0.75rem;
-    color:var(--thread);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:12px;
+  .counter-number { font-variant-numeric: tabular-nums; }
+
+  /* Lightbox */
+  #lightbox {
+    transition: opacity 0.3s ease;
   }
 
-  /* ===== STICKY MOBILE BOOKING BAR ===== */
-  #booking-bar{
-    display:none;
-    position:fixed;
-    left:0; right:0; bottom:0;
-    z-index:30;
-    background:rgba(23,24,28,0.96);
-    backdrop-filter:blur(14px);
-    border-top:1px solid var(--line);
-    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-    gap:10px;
-  }
-  #booking-bar a{
-    flex:1;
-    text-align:center;
-    padding:14px 10px;
-    border-radius:var(--radius-pill);
-    font-family:var(--font-mono);
-    font-size:0.78rem;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-  }
-  #booking-bar a.call{ background:var(--champagne); color:var(--obsidian); font-weight:700; }
-  #booking-bar a.msg{ border:1px solid var(--champagne-dim); color:var(--ivory); }
-  @media (max-width:767px){
-    #booking-bar{ display:flex; }
-    body{ padding-bottom:78px; }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    .examine-inner{ transition:none; }
-    .examine-inner.in-view .gloss-layer{ animation:none; opacity:0.4; }
-  }
-.service-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 20px;
-  border-radius: 4px;
-}
-
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0e0e10; }
+  ::-webkit-scrollbar-thumb { background: #3a3a3f; border-radius: 10px; }
 </style>
 </head>
-<body>
 
-<!-- ===== HEADER ===== -->
-<header id="site-header">
-  <div class="wrap">
-    <a href="#hero" class="logo">NATI <span>CAR DECOR</span></a>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="#tapseri">Tapseri</a></li>
-        <li><a href="#wraps">Wraps</a></li>
-        <li><a href="#interior">Interior</a></li>
-        <li><a href="#models">Models</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<body class="bg-charcoal text-white antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-charcoal/80 backdrop-blur-md border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
+    <a href="#home" class="flex items-center gap-2 group">
+      <span class="text-2xl md:text-3xl font-display font-bold gold-gradient-text tracking-wide">Nati</span>
+      <span class="text-xl md:text-2xl font-light tracking-wider text-white">Car Decor</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-10 text-sm font-medium tracking-wide text-gray-200">
+      <a href="#home" class="nav-link hover:text-gold-light">Home</a>
+      <a href="#services" class="nav-link hover:text-gold-light">Services</a>
+      <a href="#work" class="nav-link hover:text-gold-light">Our Work</a>
+      <a href="#gallery" class="nav-link hover:text-gold-light">Gallery</a>
+      <a href="#about" class="nav-link hover:text-gold-light">About Us</a>
+      <a href="#contact" class="nav-link hover:text-gold-light">Contact</a>
     </nav>
-    <a class="btn-pill" href="tel:+251903369492">090 336 9492</a>
+
+    <div class="flex items-center gap-4">
+      <a href="tel:0903369492" class="btn-primary hidden md:inline-block px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide">
+        Book a Visit
+      </a>
+      <button id="menu-btn" class="lg:hidden text-white focus:outline-none" aria-label="Toggle menu">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden bg-charcoal-light border-t border-white/5">
+    <div class="flex flex-col px-6 py-6 gap-5 text-gray-200 text-base">
+      <a href="#home" class="mobile-link hover:text-gold-light">Home</a>
+      <a href="#services" class="mobile-link hover:text-gold-light">Services</a>
+      <a href="#work" class="mobile-link hover:text-gold-light">Our Work</a>
+      <a href="#gallery" class="mobile-link hover:text-gold-light">Gallery</a>
+      <a href="#about" class="mobile-link hover:text-gold-light">About Us</a>
+      <a href="#contact" class="mobile-link hover:text-gold-light">Contact</a>
+      <a href="tel:0903369492" class="btn-primary text-center px-6 py-3 rounded-full text-sm font-semibold mt-2">Book a Visit</a>
+    </div>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section id="hero">
-  <div class="hero-full-image">
-    <figure class="hero-stage-full">
-      <img src="Nati.PNG" alt="Nati Car Decor" class="full-width-img">
-    </figure>
+<!-- ============ HERO ============ -->
+<section id="home" class="hero-bg min-h-screen flex items-center relative pt-20">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 w-full">
+    <div class="max-w-3xl">
+      <p class="uppercase tracking-[0.3em] text-gold-light text-xs md:text-sm mb-5 font-medium">Addis Ababa's Premier Car Interior Studio</p>
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
+        Nati Car Decor — <span class="gold-gradient-text">Ultimate Style</span> &amp; Elegance for Your Ride.
+      </h1>
+      <p class="text-gray-300 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
+        Based in Addis Ababa, we specialize in professional car interior design, premium accessories, and precision detailing — transforming every vehicle into a personal statement of luxury and craftsmanship.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#contact" class="btn-primary px-8 py-4 rounded-full font-semibold tracking-wide text-sm">Book a Visit</a>
+        <a href="#services" class="btn-outline px-8 py-4 rounded-full font-semibold tracking-wide text-sm">View Services</a>
+      </div>
+    </div>
   </div>
 
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
 
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <h2>Precision, <em>stitched</em> into every ride.</h2>
-      <p class="lede">Bespoke Tapseri upholstery, VVIP exterior wraps and interior finishing for BYD, Vitz and Corolla — built by hand, one seam at a time.</p>
-      <div class="hero-cta">
-        <a class="btn-pill solid" href="tel:+251903369492">Book a fitting — 090 336 9492</a>
-        <a class="btn-pill" href="#tapseri">See the work</a>
+<!-- ============ SERVICES ============ -->
+<section id="services" class="py-24 md:py-32 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="uppercase tracking-[0.3em] text-gold-light text-xs md:text-sm mb-4 font-medium">What We Offer</p>
+      <h2 class="font-display font-bold text-3xl md:text-5xl mb-5">Our Signature Services</h2>
+      <div class="divider-gold mx-auto"></div>
+      <p class="text-gray-400 mt-6">Every detail engineered for comfort, technology, and timeless style.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+      <!-- Service 1 -->
+      <div class="card-glow bg-charcoal-light rounded-2xl p-8 flex flex-col">
+        <div class="h-14 w-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gold-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 6a2 2 0 00-2 2v8a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2M4 6l2-3h12l2 3M9 12h6" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Custom Seat Covers &amp; Upholstery</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Premium leather and fabric upholstery tailored precisely to your vehicle's interior, blending comfort with high-end craftsmanship.</p>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="card-glow bg-charcoal-light rounded-2xl p-8 flex flex-col">
+        <div class="h-14 w-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gold-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7a2 2 0 012-2h2a2 2 0 012 2v10m-9 0h10a2 2 0 002-2V9a2 2 0 00-2-2H7a2 2 0 00-2 2v6a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Android Screens &amp; Infotainment</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Cutting-edge Android multimedia units with navigation, connectivity, and seamless integration into your dashboard.</p>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="card-glow bg-charcoal-light rounded-2xl p-8 flex flex-col">
+        <div class="h-14 w-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gold-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Interior Lighting &amp; Accessories</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Ambient LED lighting and premium accessory upgrades that add mood, character, and a modern touch to your cabin.</p>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="card-glow bg-charcoal-light rounded-2xl p-8 flex flex-col">
+        <div class="h-14 w-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gold-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h18v18H3V3zm4 4h10v10H7V7z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Custom Floor Mats &amp; Protection</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Precision-fit floor mats and interior protection solutions built to guard your cabin while keeping it stylish.</p>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="card-glow bg-charcoal-light rounded-2xl p-8 flex flex-col">
+        <div class="h-14 w-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gold-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15a3 3 0 100-6 3 3 0 000 6z M4.2 12a7.8 7.8 0 0115.6 0 7.8 7.8 0 01-15.6 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Steering Wheel Wraps &amp; Styling</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Expertly wrapped steering wheels in leather and premium finishes for a refined grip and elevated look.</p>
+      </div>
+
+      <!-- CTA Card -->
+      <div class="rounded-2xl p-8 flex flex-col justify-center items-start bg-gradient-to-br from-gold-dark/20 to-transparent border border-gold/20">
+        <h3 class="text-xl font-semibold mb-3">Not sure what you need?</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">Talk to our team and get a personalized recommendation for your vehicle.</p>
+        <a href="#contact" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">Get In Touch</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR WORK ============ -->
+<section id="work" class="py-24 md:py-32 bg-charcoal-light">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="uppercase tracking-[0.3em] text-gold-light text-xs md:text-sm mb-4 font-medium">Craftsmanship in Action</p>
+      <h2 class="font-display font-bold text-3xl md:text-5xl mb-5">Our Work</h2>
+      <div class="divider-gold mx-auto"></div>
+      <p class="text-gray-400 mt-6">A closer look at the transformations we bring to every vehicle that comes through our doors.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="rounded-2xl overflow-hidden bg-charcoal card-glow">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=900&auto=format&fit=crop" alt="Custom leather seat upholstery installation" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h4 class="font-semibold text-lg mb-2">Full Interior Reupholstery</h4>
+          <p class="text-gray-400 text-sm">Complete seat and cabin transformation using premium leather stitched to precise factory fitment.</p>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden bg-charcoal card-glow">
+        <img src="https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=900&auto=format&fit=crop" alt="Android infotainment screen installation" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h4 class="font-semibold text-lg mb-2">Infotainment Retrofit</h4>
+          <p class="text-gray-400 text-sm">Modern Android display integrated seamlessly with factory dash lines and controls.</p>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden bg-charcoal card-glow">
+        <img src="https://images.unsplash.com/photo-1541348263662-e068662d82af?q=80&w=900&auto=format&fit=crop" alt="Ambient interior lighting installation" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h4 class="font-semibold text-lg mb-2">Ambient Lighting Setup</h4>
+          <p class="text-gray-400 text-sm">Multi-zone LED ambient lighting designed to elevate the cabin mood day and night.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
-<section id="tapseri">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">01 — Signature Craft</span>
-      <h2>Custom Tapestry, tailored to the seat.</h2>
-      <p>Every Tapseri program is fitted to the exact seat geometry of the model — diamond, waffle or channel quilting, hand-aligned thread by thread.</p>
+<!-- ============ GALLERY (Photo Only) ============ -->
+<section id="gallery" class="py-24 md:py-32 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="uppercase tracking-[0.3em] text-gold-light text-xs md:text-sm mb-4 font-medium">Workshop Gallery</p>
+      <h2 class="font-display font-bold text-3xl md:text-5xl mb-5">Photo Gallery</h2>
+      <div class="divider-gold mx-auto"></div>
+      <p class="text-gray-400 mt-6">A visual showcase of our custom interior transformations and installations — photos only.</p>
     </div>
 
-    <div class="services-grid">
-
-<article class="examine-card" data-examine>
-  <div class="examine-inner service-card">
-    <img src="Chair.PNG" alt="BYD Seagull custom seat with premium leatherette and gold diamond stitching" class="service-img">
-
-    <span class="spec">DIAMOND QUILT · 6mm PITCH</span>
-    <h3>BYD Seagull Tapseri</h3>
-    <p class="desc">Full seat re-cover in premium leatherette with reinforced diamond stitching, matched to factory trim lines.</p>
-    <a class="learn" href="tel:+251903369492">Enquire →</a>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px]">
+      <div class="gallery-item rounded-xl row-span-2 col-span-1">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop" alt="Luxury car interior detailing" class="w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="text-sm font-medium">Interior Detailing</span></div>
+      </div>
+      <div class="gallery-item rounded-xl">
+        <img src="https://images.unsplash.com/photo-1620891549027-942fdc95d3f5?q=80&w=800&auto=format&fit=crop" alt="Custom car seat covers" class="w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="text-sm font-medium">Seat Covers</span></div>
+      </div>
+      <div class="gallery-item rounded-xl">
+        <img src="https://images.unsplash.com/photo-1587613864411-cc3f3f5eb0c4?q=80&w=800&auto=format&fit=crop" alt="Steering wheel wrap installation" class="w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="text-sm font-medium">Steering Wraps</span></div>
+      </div>
+      <div class="gallery-item rounded-xl row-span-2 col-span-1">
+        <img src="https://images.unsplash.com/photo-1615469544663-c7bc82bd7f18?q=80&w=800&auto=format&fit=crop" alt="Car dashboard Android screen" class="w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="text-sm font-medium">Dash Upgrade</span></div>
+      </div>
+      <div class="gallery-item rounded-xl col-span-2">
+        <img src="https://images.unsplash.com/photo-1541348263662-e068662d82af?q=80&w=1000&auto=format&fit=crop" alt="Ambient interior lighting" class="w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="text-sm font-medium">Ambient Lighting</span></div>
+      </div>
+      <div class="gallery-item rounded-xl">
+        <img src="https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=800&auto=format&fit=crop" alt="Infotainment system upgrade" class="w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="text-sm font-medium">Infotainment</span></div>
+      </div>
+      <div class="gallery-item rounded-xl">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop" alt="Custom floor mats" class="w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="text-sm font-medium">Floor Mats</span></div>
+      </div>
+      <div class="gallery-item rounded-xl">
+        <img src="https://images.unsplash.com/photo-1552862750-4bc3b4c3b3c4?q=80&w=800&auto=format&fit=crop" alt="Luxury car interior finishing" class="w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 flex items-end p-4"><span class="text-sm font-medium">Finishing Touches</span></div>
+      </div>
+    </div>
+    <p class="text-center text-gray-500 text-xs mt-8">Note: Replace the placeholder image URLs above with your own workshop photography for full authenticity.</p>
   </div>
-</article>
+</section>
 
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center p-6">
+  <button id="lightbox-close" class="absolute top-6 right-6 text-white/80 hover:text-gold-light">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  <img id="lightbox-img" src="" alt="Expanded gallery photo" class="max-h-[85vh] max-w-full rounded-lg object-contain">
+</div>
 
-     <article class="examine-card" data-examine id="wraps">
-  <div class="examine-inner service-card">
-
-    <div class="hero-stage-full">
-      <img src="Vvip .PNG" alt="Black Mercedes sedan in a premium garage, showcasing high-gloss exterior finish and window tinting" class="full-width-img">
+<!-- ============ ABOUT + STATS ============ -->
+<section id="about" class="py-24 md:py-32 bg-charcoal-light">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="uppercase tracking-[0.3em] text-gold-light text-xs md:text-sm mb-4 font-medium">About Nati Car Decor</p>
+      <h2 class="font-display font-bold text-3xl md:text-5xl mb-6 leading-tight">Where Premium Craftsmanship Meets Automotive Passion</h2>
+      <p class="text-gray-400 leading-relaxed mb-5">
+        Founded in the heart of Addis Ababa, Nati Car Decor has grown into a trusted name for drivers who expect more from their vehicle's interior. We believe every car deserves an interior as refined as its exterior — combining premium materials, precision installation, and an obsessive attention to detail.
+      </p>
+      <p class="text-gray-400 leading-relaxed mb-8">
+        From custom upholstery to the latest infotainment technology, our expert technicians work with a single goal: delivering vehicle aesthetics and comfort that exceed expectations, every single time.
+      </p>
+      <a href="#contact" class="btn-primary px-8 py-4 rounded-full font-semibold tracking-wide text-sm inline-block">Visit Our Workshop</a>
     </div>
 
-    <span class="spec">GLOSS · MATTE · SATIN</span>
-    <h3>Exterior Wraps &amp; VVIP Finishes</h3>
-    <p class="desc">Full-body vinyl wraps, colour change and paint protection, plus precision window tinting for a finished VVIP stance.</p>
-    <a class="learn" href="tel:+251903369492">Enquire →</a>
-  </div>
-</article>
-
-
-     <article class="examine-card" data-examine id="interior">
-  <div class="examine-inner service-card">
-
-    <div class="hero-stage-full">
-      <img src="Interior .PNG" alt="Close-up of luxury car interior enhancements featuring custom trim and premium flooring" class="full-width-img">
-    </div>
-
-    <span class="spec">DASH · FLOOR · TRIM</span>
-    <h3>Interior Enhancements</h3>
-    <p class="desc">Custom dashboard stickers, premium carpet and flooring upgrades, finished to match the cabin's new identity.</p>
-    <a class="learn" href="tel:+251903369492">Enquire →</a>
-  </div>
-</article>
-
-
+    <div class="grid grid-cols-2 gap-6">
+      <div class="bg-charcoal rounded-2xl p-8 text-center border border-white/5">
+        <div class="counter-number text-4xl md:text-5xl font-display font-bold gold-gradient-text" data-target="8">0</div>
+        <p class="text-gray-400 text-sm mt-3 tracking-wide">Years Experience</p>
+      </div>
+      <div class="bg-charcoal rounded-2xl p-8 text-center border border-white/5">
+        <div class="counter-number text-4xl md:text-5xl font-display font-bold gold-gradient-text" data-target="1200">0</div>
+        <p class="text-gray-400 text-sm mt-3 tracking-wide">Satisfied Clients</p>
+      </div>
+      <div class="bg-charcoal rounded-2xl p-8 text-center border border-white/5">
+        <div class="counter-number text-4xl md:text-5xl font-display font-bold gold-gradient-text" data-target="950">0</div>
+        <p class="text-gray-400 text-sm mt-3 tracking-wide">Custom Projects</p>
+      </div>
+      <div class="bg-charcoal rounded-2xl p-8 text-center border border-white/5">
+        <div class="counter-number text-4xl md:text-5xl font-display font-bold gold-gradient-text" data-target="12">0</div>
+        <p class="text-gray-400 text-sm mt-3 tracking-wide">Expert Technicians</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SOCIAL / PORTFOLIO ===== -->
-<section id="portfolio">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">03 — Proof</span>
-      <h2>Watch the stitch, not just the result.</h2>
-      <p>The full build process — every wrap and every seam — documented on TikTok and Instagram.</p>
+<!-- ============ CONTACT / CTA STRIP ============ -->
+<section id="contact" class="py-24 md:py-32 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="uppercase tracking-[0.3em] text-gold-light text-xs md:text-sm mb-4 font-medium">Get In Touch</p>
+      <h2 class="font-display font-bold text-3xl md:text-5xl mb-5">Visit Our Workshop</h2>
+      <div class="divider-gold mx-auto"></div>
     </div>
 
-    <div class="social-panel">
-      <a class="social-callout" href="https://www.tiktok.com/@nati_car_decor?_r=1&_t=ZS-98DkYvMtOEy" target="_blank" rel="noopener">
-        <span class="icon-ring">
-          <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-1.02-.9-1.6-2.16-1.6-3.5V2h-3.5v14.4c0 1.5-1.22 2.7-2.7 2.7s-2.7-1.2-2.7-2.7 1.22-2.7 2.7-2.7c.28 0 .55.04.8.12v-3.55a6.2 6.2 0 0 0-.8-.05c-3.45 0-6.25 2.8-6.25 6.25S8.25 22.75 11.7 22.75s6.25-2.8 6.25-6.25V9.66a9.3 9.3 0 0 0 4.55 1.19v-3.5c-1.9 0-3.63-.7-4.9-1.53Z"/></svg>
-        </span>
-        <span class="callout-text">
-          <span class="platform">TikTok</span>
-          <span class="handle">@nati_car_decor</span>
-        </span>
-        <span class="arrow">→</span>
+    <div class="grid md:grid-cols-3 gap-6 mb-16">
+      <a href="tel:0903369492" class="card-glow bg-charcoal-light rounded-2xl p-8 text-center block">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gold-light mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        <h3 class="font-semibold text-lg mb-1">Call Us</h3>
+        <p class="text-gray-400 text-sm">090 336 9492</p>
       </a>
+      <div class="card-glow bg-charcoal-light rounded-2xl p-8 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gold-light mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <h3 class="font-semibold text-lg mb-1">Location</h3>
+        <p class="text-gray-400 text-sm">Lebu Mebrat Hail, Addis Ababa, Ethiopia</p>
+      </div>
+      <div class="card-glow bg-charcoal-light rounded-2xl p-8 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gold-light mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h3 class="font-semibold text-lg mb-1">Working Hours</h3>
+        <p class="text-gray-400 text-sm">Monday – Saturday<br>8:00 AM – 6:00 PM</p>
+      </div>
+    </div>
 
-      <a class="social-callout" href="https://www.instagram.com/nati_decor_11?igsh=MWg1djE3eDhoMHliNQ==" target="_blank" rel="noopener">
-        <span class="icon-ring">
-          <svg viewBox="0 0 24 24"><path d="M12 2.2c2.7 0 3 .01 4.1.06 1.05.05 1.79.22 2.42.47.66.25 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.62.42 1.36.47 2.42.05 1.1.06 1.4.06 4.1s-.01 3-.06 4.1c-.05 1.05-.22 1.79-.47 2.42-.25.66-.6 1.22-1.16 1.77-.55.55-1.11.9-1.77 1.16-.62.25-1.36.42-2.42.47-1.1.05-1.4.06-4.1.06s-3-.01-4.1-.06c-1.05-.05-1.79-.22-2.42-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.62-.42-1.36-.47-2.42C2.01 15 2 14.7 2 12s.01-3 .06-4.1c.05-1.05.22-1.79.47-2.42.25-.66.6-1.22 1.16-1.77A4.9 4.9 0 0 1 5.46 2.55c.62-.25 1.36-.42 2.42-.47C8.98 2.02 9.3 2 12 2Zm0 1.8c-2.66 0-2.97.01-4.02.06-.86.04-1.32.18-1.63.3-.41.16-.7.35-1.01.66-.31.31-.5.6-.66 1.01-.12.31-.26.77-.3 1.63-.05 1.05-.06 1.36-.06 4.02s.01 2.97.06 4.02c.04.86.18 1.32.3 1.63.16.41.35.7.66 1.01.31.31.6.5 1.01.66.31.12.77.26 1.63.3 1.05.05 1.36.06 4.02.06s2.97-.01 4.02-.06c.86-.04 1.32-.18 1.63-.3.41-.16.7-.35 1.01-.66.31-.31.5-.6.66-1.01.12-.31.26-.77.3-1.63.05-1.05.06-1.36.06-4.02s-.01-2.97-.06-4.02c-.04-.86-.18-1.32-.3-1.63a2.7 2.7 0 0 0-.66-1.01 2.7 2.7 0 0 0-1.01-.66c-.31-.12-.77-.26-1.63-.3-1.05-.05-1.36-.06-4.02-.06Zm0 3.05a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.2-1.99a1.17 1.17 0 1 1-2.33 0 1.17 1.17 0 0 1 2.33 0Z"/></svg>
-        </span>
-        <span class="callout-text">
-          <span class="platform">Instagram</span>
-          <span class="handle">@nati_decor_11</span>
-        </span>
-        <span class="arrow">→</span>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="tel:0903369492" class="btn-primary px-8 py-4 rounded-full font-semibold text-sm flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+        Call Now
+      </a>
+      <a href="https://wa.me/251903369492" target="_blank" rel="noopener" class="btn-outline px-8 py-4 rounded-full font-semibold text-sm flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 004.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0012.04 2zm0 18.13h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.22 8.22 0 01-1.26-4.35c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.55-3.7 8.24-8.25 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.68 4.25 3.75.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://t.me/natichebo" target="_blank" rel="noopener" class="btn-outline px-8 py-4 rounded-full font-semibold text-sm flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L2 10.5l6.2 2.2L11 20l3-4 5 3.5L22 2zM9.3 13.2l8.4-7.5-6.7 8.3-.3 3.6-1.4-4.4z"/></svg>
+        Telegram
       </a>
     </div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact">
-  <div class="wrap">
-    <span class="eyebrow">Book a fitting</span>
-    <h2>Bring the car in. Leave it tailored.</h2>
-    <a class="btn-pill solid" href="tel:+251903369492">Call 090 336 9492</a>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h5>Nati Car Decor</h5>
-        <p>Lebu Mebrat Hail,<br>Addis Ababa, Ethiopia</p>
-        <a class="location-link" href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x164b81002ebaa365:0x66bdb01fdd98258f?entry=s&sa=X&ved=2ahUKEwi5x7vXgeSVAxV02QIHHaSCFFoQ4kB6BAgVEAA&hl=en" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.3 11.4 7.06 12.13a.6.6 0 0 0 .88 0C13.2 20.9 19.5 14.75 19.5 9.5 19.5 5.36 16.14 2 12 2Zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z"/></svg>
-          Visit Our Location
+<!-- ============ FOOTER ============ -->
+<footer class="bg-charcoal-light border-t border-white/5 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 grid md:grid-cols-4 gap-10 mb-12">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-2xl font-display font-bold gold-gradient-text">Nati</span>
+        <span class="text-xl font-light text-white">Car Decor</span>
+      </div>
+      <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+        Premium car interior design, accessories, and detailing based in Addis Ababa, Ethiopia. Ultimate style and elegance for your ride.
+      </p>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-sm tracking-wide">Quick Links</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li><a href="#services" class="hover:text-gold-light">Services</a></li>
+        <li><a href="#work" class="hover:text-gold-light">Our Work</a></li>
+        <li><a href="#gallery" class="hover:text-gold-light">Gallery</a></li>
+        <li><a href="#about" class="hover:text-gold-light">About Us</a></li>
+        <li><a href="#contact" class="hover:text-gold-light">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-sm tracking-wide">Contact</h4>
+      <ul class="space-y-3 text-sm text-gray-400">
+        <li>Lebu Mebrat Hail, Addis Ababa, Ethiopia</li>
+        <li><a href="tel:0903369492" class="hover:text-gold-light">090 336 9492</a></li>
+        <li>Mon – Sat: 8:00 AM – 6:00 PM</li>
+      </ul>
+      <div class="flex gap-4 mt-5">
+        <a href="#" aria-label="Facebook" class="h-9 w-9 rounded-full bg-charcoal flex items-center justify-center hover:bg-gold/20 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="h-9 w-9 rounded-full bg-charcoal flex items-center justify-center hover:bg-gold/20 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.42.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.42.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.42a4.9 4.9 0 01-1.15 1.77 4.9 4.9 0 01-1.77 1.15c-.63.25-1.36.42-2.42.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.42-.47a4.9 4.9 0 01-1.77-1.15 4.9 4.9 0 01-1.15-1.77c-.25-.63-.42-1.36-.47-2.42C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.42.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 015.45 2.53c.63-.25 1.36-.42 2.42-.47C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.74 4.27 9.06 4.27 12s.01 3.26.06 4.31c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.05.06-1.37.06-4.31s-.01-3.26-.06-4.31c-.04-.87-.18-1.34-.3-1.65a2.75 2.75 0 00-.66-1.02 2.75 2.75 0 00-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8zm0 3.15a5.05 5.05 0 110 10.1 5.05 5.05 0 010-10.1zm0 1.8a3.25 3.25 0 100 6.5 3.25 3.25 0 000-6.5zm6.4-2a1.18 1.18 0 11-2.36 0 1.18 1.18 0 012.36 0z"/></svg>
+        </a>
+        <a href="https://t.me/natichebo" target="_blank" rel="noopener" aria-label="Telegram" class="h-9 w-9 rounded-full bg-charcoal flex items-center justify-center hover:bg-gold/20 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L2 10.5l6.2 2.2L11 20l3-4 5 3.5L22 2zM9.3 13.2l8.4-7.5-6.7 8.3-.3 3.6-1.4-4.4z"/></svg>
+        </a>
+        <a href="https://wa.me/251903369492" target="_blank" rel="noopener" aria-label="WhatsApp" class="h-9 w-9 rounded-full bg-charcoal flex items-center justify-center hover:bg-gold/20 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 004.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0012.04 2z"/></svg>
         </a>
       </div>
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <a href="tel:+251903369492">090 336 9492</a>
-        <a href="https://www.tiktok.com/@nati_car_decor?_r=1&_t=ZS-98DkYvMtOEy" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://www.instagram.com/nati_decor_11?igsh=MWg1djE3eDhoMHliNQ==" target="_blank" rel="noopener">Instagram</a>
-      </div>
-      <div class="footer-col">
-        <h5>Hours</h5>
-        <p>Mon – Sat, 08:00 – 18:00<br>Sunday by appointment</p>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Nati Car Decor</span>
-      <span>VVIP Auto Styling · Addis Ababa</span>
-    </div>
+  </div>
+  <div class="border-t border-white/5 pt-6">
+    <p class="text-center text-gray-500 text-xs px-5">&copy; <span id="year"></span> Nati Car Decor. All rights reserved. | Lebu Mebrat Hail, Addis Ababa, Ethiopia</p>
   </div>
 </footer>
 
-<!-- ===== STICKY MOBILE BOOKING BAR ===== -->
-<div id="booking-bar" role="region" aria-label="Booking">
-  <a class="call" href="tel:+251903369492">Call now</a>
-  <a class="msg" href="https://wa.me/251903369492" target="_blank" rel="noopener">Message</a>
-</div>
-
 <script>
-(function(){
-  "use strict";
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
 
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+  });
 
-  /* ---------- Header solidify on scroll ---------- */
-  var header = document.getElementById('site-header');
-  function onHeaderScroll(){
-    if (window.scrollY > 40) header.classList.add('solid');
-    else header.classList.remove('solid');
-  }
-  window.addEventListener('scroll', onHeaderScroll, { passive:true });
-  onHeaderScroll();
-
-  /* ---------- Examine cards: pointer tilt + gloss (desktop) ---------- */
-  var examineCards = document.querySelectorAll('[data-examine] .examine-inner');
-  var supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-  if (supportsHover && !reduceMotion){
-    examineCards.forEach(function(card){
-      card.addEventListener('pointermove', function(e){
-        var rect = card.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width;
-        var y = (e.clientY - rect.top) / rect.height;
-        var rotY = (x - 0.5) * 12;
-        var rotX = (0.5 - y) * 12;
-        card.style.transform = 'rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
-        card.classList.add('raised');
-        var gloss = card.querySelector('.gloss-layer');
-        if (gloss){
-          gloss.style.setProperty('--gx', (x*100) + '%');
-          gloss.style.setProperty('--gy', (y*100) + '%');
-          gloss.style.opacity = 1;
-        }
-      });
-      card.addEventListener('pointerleave', function(){
-        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        card.classList.remove('raised');
-        var gloss = card.querySelector('.gloss-layer');
-        if (gloss) gloss.style.opacity = 0;
-      });
-    });
-  }
-
-  /* ---------- Examine cards: scroll-in reveal (mobile / all) ---------- */
-  if ('IntersectionObserver' in window){
-    var cardObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting){
-          entry.target.classList.add('in-view');
-          cardObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold:0.35 });
-    examineCards.forEach(function(card){ cardObserver.observe(card); });
-  } else {
-    examineCards.forEach(function(card){ card.classList.add('in-view'); });
-  }
-
-  /* ---------- Magnify tap (touch): radial reveal on the swatch ---------- */
-  document.querySelectorAll('.swatch').forEach(function(swatch){
-    swatch.addEventListener('touchstart', function(e){
-      var rect = swatch.getBoundingClientRect();
-      var touch = e.touches[0];
-      var x = ((touch.clientX - rect.left) / rect.width) * 100;
-      var y = ((touch.clientY - rect.top) / rect.height) * 100;
-      swatch.style.transition = 'clip-path 0ms';
-      swatch.style.clipPath = 'circle(140px at ' + x + '% ' + y + '%)';
-      swatch.querySelector('.gloss-layer').style.opacity = 1;
-    }, { passive:true });
-    swatch.addEventListener('touchend', function(){
-      swatch.style.transition = 'clip-path ' + (reduceMotion ? '0ms' : '400ms') + ' ' + getComputedStyle(document.documentElement).getPropertyValue('--ease-precision');
-      swatch.style.clipPath = 'circle(150% at 50% 50%)';
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
     });
   });
 
-  /* ---------- Before / after compare sliders ---------- */
-  document.querySelectorAll('[data-compare]').forEach(function(compare){
-    var after = compare.querySelector('.after');
-    var handle = compare.querySelector('.compare-handle');
-    var input = compare.querySelector('input[type="range"]');
-    function update(val){
-      after.style.clipPath = 'inset(0 ' + (100 - val) + '% 0 0)';
-      handle.style.left = val + '%';
+  // Navbar background on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add('shadow-lg');
+    } else {
+      navbar.classList.remove('shadow-lg');
     }
-    input.addEventListener('input', function(){ update(input.value); });
-    update(input.value);
   });
 
-  /* ---------- Footer year ---------- */
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // Animated stat counters
+  const counters = document.querySelectorAll('.counter-number');
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    let current = 0;
+    const duration = 1800;
+    const stepTime = Math.max(Math.floor(duration / target), 15);
+    const increment = Math.ceil(target / (duration / stepTime));
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = current.toLocaleString() + (target >= 100 ? '+' : '');
+    }, stepTime);
+  };
 
-})();
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => counterObserver.observe(counter));
+
+  // Lightbox for gallery images
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  };
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
