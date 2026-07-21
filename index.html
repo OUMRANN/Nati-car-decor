@@ -76,20 +76,6 @@
     color:var(--champagne);
   }
 
-  /* Luxury location marque — floating, transparent, serif */
-  .luxury-location{
-    display:block;
-    font-family:var(--font-luxury);
-    font-weight:500;
-    font-style:normal;
-    font-size:clamp(0.7rem, 1.8vw, 0.95rem);
-    text-transform:uppercase;
-    letter-spacing:6px;
-    color:var(--luxury-gold);
-    background:transparent;
-    margin-top:14px;
-  }
-
   .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
   section{position:relative; padding:calc(var(--space)*14) 0;}
 
@@ -260,7 +246,6 @@
     margin-bottom:22px;
     overflow:hidden;
     border:none;
-    /* SWAP POINT: replace background with real macro photography of stitching / gloss / material */
     background:var(--gunmetal-2);
   }
   .swatch.quilt{
@@ -321,6 +306,59 @@
     border-bottom:1px solid var(--champagne-dim);
     padding-bottom:2px;
   }
+
+  /* ===== SOCIAL / PORTFOLIO — borderless callout cards ===== */
+  .social-panel{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+  }
+  @media (max-width:768px){ .social-panel{ grid-template-columns:1fr; gap:24px; } }
+
+  .social-callout{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:28px 4px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    transition:border-color var(--dur-fast) var(--ease-precision), transform var(--dur-fast) var(--ease-precision);
+  }
+  .social-callout:hover, .social-callout:focus-visible{
+    border-color:var(--champagne-dim);
+    transform:translateX(4px);
+  }
+  .social-callout .icon-ring{
+    flex:0 0 auto;
+    width:52px; height:52px;
+    border:1px solid var(--champagne-dim);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color var(--dur-fast) var(--ease-precision);
+  }
+  .social-callout:hover .icon-ring{ border-color:var(--champagne); }
+  .social-callout .icon-ring svg{ width:20px; height:20px; fill:var(--ivory); }
+  .social-callout .callout-text{ flex:1 1 auto; }
+  .social-callout .callout-text .platform{
+    font-family:var(--font-display);
+    font-size:1.15rem;
+    color:var(--ivory);
+    margin-bottom:4px;
+  }
+  .social-callout .callout-text .handle{
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    color:var(--smoke);
+    letter-spacing:0.02em;
+  }
+  .social-callout .arrow{
+    flex:0 0 auto;
+    font-family:var(--font-mono);
+    font-size:1.1rem;
+    color:var(--champagne);
+    transition:transform var(--dur-fast) var(--ease-precision);
+  }
+  .social-callout:hover .arrow{ transform:translateX(4px); }
 
   /* ===== MODEL SHOWCASE ===== */
   .model-strip{
@@ -391,45 +429,6 @@
   .model-meta h4{ font-family:var(--font-display); font-size:1.1rem; font-weight:500; margin-bottom:4px; }
   .model-meta span{ font-family:var(--font-mono); font-size:var(--fs-caption); color:var(--smoke); }
 
-  /* ===== SOCIAL / PORTFOLIO ===== */
-  .social-panel{
-    border:1px solid var(--line);
-    border-radius:var(--radius-card);
-    background:var(--gunmetal);
-    padding:32px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
-  }
-  @media (max-width:768px){ .social-panel{ grid-template-columns:1fr; } }
-  .social-embed{
-    aspect-ratio:9/16;
-    max-height:560px;
-    background:var(--gunmetal-2);
-    border:1px solid var(--line);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:24px;
-  }
-  .social-embed .placeholder{
-    font-family:var(--font-mono);
-    font-size:var(--fs-caption);
-    color:var(--smoke);
-    line-height:1.8;
-  }
-  .social-links{ display:flex; gap:16px; margin-top:24px; }
-  .social-icon{
-    width:44px; height:44px;
-    border:1px solid var(--champagne-dim);
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    transition:border-color var(--dur-fast) var(--ease-precision), transform var(--dur-fast) var(--ease-precision);
-  }
-  .social-icon:hover, .social-icon:focus-visible{ border-color:var(--champagne); transform:translateY(-2px); }
-  .social-icon svg{ width:18px; height:18px; fill:var(--ivory); }
-
   /* ===== CONTACT / FOOTER ===== */
   #contact{ text-align:center; }
   #contact .eyebrow{ display:block; margin-bottom:14px; }
@@ -456,6 +455,25 @@
   }
   .footer-col p, .footer-col a{ color:var(--smoke); font-size:0.9rem; line-height:1.9; display:block; }
   .footer-col a:hover, .footer-col a:focus-visible{ color:var(--ivory); }
+
+  /* Location link — minimal, borderless, luxury */
+  .location-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:6px;
+    font-family:var(--font-mono);
+    font-size:0.9rem;
+    color:var(--smoke);
+    border-bottom:1px solid transparent;
+    transition:color var(--dur-fast) var(--ease-precision), border-color var(--dur-fast) var(--ease-precision);
+  }
+  .location-link svg{ width:14px; height:14px; fill:var(--champagne); flex:0 0 auto; }
+  .location-link:hover, .location-link:focus-visible{
+    color:var(--ivory);
+    border-color:var(--champagne-dim);
+  }
+
   .footer-bottom{
     margin-top:40px;
     padding-top:24px;
@@ -465,8 +483,9 @@
     color:var(--thread);
     display:flex;
     justify-content:space-between;
+    align-items:center;
     flex-wrap:wrap;
-    gap:8px;
+    gap:12px;
   }
 
   /* ===== STICKY MOBILE BOOKING BAR ===== */
@@ -566,9 +585,8 @@
 
 <article class="examine-card" data-examine>
   <div class="examine-inner service-card">
-    <!-- Replace the swatch div with your image -->
     <img src="Chair.PNG" alt="BYD Seagull custom seat with premium leatherette and gold diamond stitching" class="service-img">
-    
+
     <span class="spec">DIAMOND QUILT · 6mm PITCH</span>
     <h3>BYD Seagull Tapseri</h3>
     <p class="desc">Full seat re-cover in premium leatherette with reinforced diamond stitching, matched to factory trim lines.</p>
@@ -579,11 +597,11 @@
 
      <article class="examine-card" data-examine id="wraps">
   <div class="examine-inner service-card">
-    
+
     <div class="hero-stage-full">
       <img src="Vvip .PNG" alt="Black Mercedes sedan in a premium garage, showcasing high-gloss exterior finish and window tinting" class="full-width-img">
     </div>
-    
+
     <span class="spec">GLOSS · MATTE · SATIN</span>
     <h3>Exterior Wraps &amp; VVIP Finishes</h3>
     <p class="desc">Full-body vinyl wraps, colour change and paint protection, plus precision window tinting for a finished VVIP stance.</p>
@@ -594,12 +612,11 @@
 
      <article class="examine-card" data-examine id="interior">
   <div class="examine-inner service-card">
-    
-    <!-- New Image Container -->
+
     <div class="hero-stage-full">
       <img src="Interior .PNG" alt="Close-up of luxury car interior enhancements featuring custom trim and premium flooring" class="full-width-img">
     </div>
-    
+
     <span class="spec">DASH · FLOOR · TRIM</span>
     <h3>Interior Enhancements</h3>
     <p class="desc">Custom dashboard stickers, premium carpet and flooring upgrades, finished to match the cabin's new identity.</p>
@@ -620,21 +637,28 @@
       <h2>Watch the stitch, not just the result.</h2>
       <p>The full build process — every wrap and every seam — documented on TikTok and Instagram.</p>
     </div>
+
     <div class="social-panel">
-      <div class="social-embed" data-lazy-embed data-platform="tiktok">
-        <p class="placeholder">TikTok portfolio embed loads here on scroll.<br>https://www.tiktok.com/@nati_car_decor?_r=1&_t=ZS-98CGi32gseQ.</p>
-      </div>
-      <div class="social-embed" data-lazy-embed data-platform="instagram">
-        <p class="placeholder">Instagram portfolio embed loads here on scroll.<br>https://www.instagram.com/nati_decor_11?igsh=MWg1djE3eDhoMHliNQ==.</p>
-      </div> 
-    </div>
-    <div class="social-links">
-      <!-- SWAP POINT: replace # with real TikTok and Instagram profile URLs -->
-      <a class="social-icon" href="#" aria-label="https://www.tiktok.com/@nati_car_decor?_r=1&_t=ZS-98CGi32gseQ" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-1.02-.9-1.6-2.16-1.6-3.5V2h-3.5v14.4c0 1.5-1.22 2.7-2.7 2.7s-2.7-1.2-2.7-2.7 1.22-2.7 2.7-2.7c.28 0 .55.04.8.12v-3.55a6.2 6.2 0 0 0-.8-.05c-3.45 0-6.25 2.8-6.25 6.25S8.25 22.75 11.7 22.75s6.25-2.8 6.25-6.25V9.66a9.3 9.3 0 0 0 4.55 1.19v-3.5c-1.9 0-3.63-.7-4.9-1.53Z"/></svg>
+      <a class="social-callout" href="https://www.tiktok.com/@nati_car_decor?_r=1&_t=ZS-98DkYvMtOEy" target="_blank" rel="noopener">
+        <span class="icon-ring">
+          <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-1.02-.9-1.6-2.16-1.6-3.5V2h-3.5v14.4c0 1.5-1.22 2.7-2.7 2.7s-2.7-1.2-2.7-2.7 1.22-2.7 2.7-2.7c.28 0 .55.04.8.12v-3.55a6.2 6.2 0 0 0-.8-.05c-3.45 0-6.25 2.8-6.25 6.25S8.25 22.75 11.7 22.75s6.25-2.8 6.25-6.25V9.66a9.3 9.3 0 0 0 4.55 1.19v-3.5c-1.9 0-3.63-.7-4.9-1.53Z"/></svg>
+        </span>
+        <span class="callout-text">
+          <span class="platform">TikTok</span>
+          <span class="handle">@nati_car_decor</span>
+        </span>
+        <span class="arrow">→</span>
       </a>
-      <a class="social-icon" href="#" aria-label="https://www.instagram.com/nati_decor_11?igsh=MWg1djE3eDhoMHliNQ==" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M12 2.2c2.7 0 3 .01 4.1.06 1.05.05 1.79.22 2.42.47.66.25 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.62.42 1.36.47 2.42.05 1.1.06 1.4.06 4.1s-.01 3-.06 4.1c-.05 1.05-.22 1.79-.47 2.42-.25.66-.6 1.22-1.16 1.77-.55.55-1.11.9-1.77 1.16-.62.25-1.36.42-2.42.47-1.1.05-1.4.06-4.1.06s-3-.01-4.1-.06c-1.05-.05-1.79-.22-2.42-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.62-.42-1.36-.47-2.42C2.01 15 2 14.7 2 12s.01-3 .06-4.1c.05-1.05.22-1.79.47-2.42.25-.66.6-1.22 1.16-1.77A4.9 4.9 0 0 1 5.46 2.55c.62-.25 1.36-.42 2.42-.47C8.98 2.02 9.3 2 12 2Zm0 1.8c-2.66 0-2.97.01-4.02.06-.86.04-1.32.18-1.63.3-.41.16-.7.35-1.01.66-.31.31-.5.6-.66 1.01-.12.31-.26.77-.3 1.63-.05 1.05-.06 1.36-.06 4.02s.01 2.97.06 4.02c.04.86.18 1.32.3 1.63.16.41.35.7.66 1.01.31.31.6.5 1.01.66.31.12.77.26 1.63.3 1.05.05 1.36.06 4.02.06s2.97-.01 4.02-.06c.86-.04 1.32-.18 1.63-.3.41-.16.7-.35 1.01-.66.31-.31.5-.6.66-1.01.12-.31.26-.77.3-1.63.05-1.05.06-1.36.06-4.02s-.01-2.97-.06-4.02c-.04-.86-.18-1.32-.3-1.63a2.7 2.7 0 0 0-.66-1.01 2.7 2.7 0 0 0-1.01-.66c-.31-.12-.77-.26-1.63-.3-1.05-.05-1.36-.06-4.02-.06Zm0 3.05a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.2-1.99a1.17 1.17 0 1 1-2.33 0 1.17 1.17 0 0 1 2.33 0Z"/></svg>
+
+      <a class="social-callout" href="https://www.instagram.com/nati_decor_11?igsh=MWg1djE3eDhoMHliNQ==" target="_blank" rel="noopener">
+        <span class="icon-ring">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c2.7 0 3 .01 4.1.06 1.05.05 1.79.22 2.42.47.66.25 1.22.6 1.77 1.16.55.55.9 1.11 1.16 1.77.25.62.42 1.36.47 2.42.05 1.1.06 1.4.06 4.1s-.01 3-.06 4.1c-.05 1.05-.22 1.79-.47 2.42-.25.66-.6 1.22-1.16 1.77-.55.55-1.11.9-1.77 1.16-.62.25-1.36.42-2.42.47-1.1.05-1.4.06-4.1.06s-3-.01-4.1-.06c-1.05-.05-1.79-.22-2.42-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.62-.42-1.36-.47-2.42C2.01 15 2 14.7 2 12s.01-3 .06-4.1c.05-1.05.22-1.79.47-2.42.25-.66.6-1.22 1.16-1.77A4.9 4.9 0 0 1 5.46 2.55c.62-.25 1.36-.42 2.42-.47C8.98 2.02 9.3 2 12 2Zm0 1.8c-2.66 0-2.97.01-4.02.06-.86.04-1.32.18-1.63.3-.41.16-.7.35-1.01.66-.31.31-.5.6-.66 1.01-.12.31-.26.77-.3 1.63-.05 1.05-.06 1.36-.06 4.02s.01 2.97.06 4.02c.04.86.18 1.32.3 1.63.16.41.35.7.66 1.01.31.31.6.5 1.01.66.31.12.77.26 1.63.3 1.05.05 1.36.06 4.02.06s2.97-.01 4.02-.06c.86-.04 1.32-.18 1.63-.3.41-.16.7-.35 1.01-.66.31-.31.5-.6.66-1.01.12-.31.26-.77.3-1.63.05-1.05.06-1.36.06-4.02s-.01-2.97-.06-4.02c-.04-.86-.18-1.32-.3-1.63a2.7 2.7 0 0 0-.66-1.01 2.7 2.7 0 0 0-1.01-.66c-.31-.12-.77-.26-1.63-.3-1.05-.05-1.36-.06-4.02-.06Zm0 3.05a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.2-1.99a1.17 1.17 0 1 1-2.33 0 1.17 1.17 0 0 1 2.33 0Z"/></svg>
+        </span>
+        <span class="callout-text">
+          <span class="platform">Instagram</span>
+          <span class="handle">@nati_decor_11</span>
+        </span>
+        <span class="arrow">→</span>
       </a>
     </div>
   </div>
@@ -656,12 +680,16 @@
       <div class="footer-col">
         <h5>Nati Car Decor</h5>
         <p>Lebu Mebrat Hail,<br>Addis Ababa, Ethiopia</p>
+        <a class="location-link" href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x164b81002ebaa365:0x66bdb01fdd98258f?entry=s&sa=X&ved=2ahUKEwi5x7vXgeSVAxV02QIHHaSCFFoQ4kB6BAgVEAA&hl=en" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.3 11.4 7.06 12.13a.6.6 0 0 0 .88 0C13.2 20.9 19.5 14.75 19.5 9.5 19.5 5.36 16.14 2 12 2Zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z"/></svg>
+          Visit Our Location
+        </a>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
         <a href="tel:+251903369492">090 336 9492</a>
-        <a href="#https://www.tiktok.com/@nati_car_decor?_r=1&_t=ZS-98CGi32gseQ" target="_blank" rel="noopener">TikTok</a>
-        <a href="#https://www.instagram.com/nati_decor_11?igsh=MWg1djE3eDhoMHliNQ==" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@nati_car_decor?_r=1&_t=ZS-98DkYvMtOEy" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.instagram.com/nati_decor_11?igsh=MWg1djE3eDhoMHliNQ==" target="_blank" rel="noopener">Instagram</a>
       </div>
       <div class="footer-col">
         <h5>Hours</h5>
@@ -770,22 +798,6 @@
     input.addEventListener('input', function(){ update(input.value); });
     update(input.value);
   });
-
-  /* ---------- Lazy-load social embeds on intersection ---------- */
-  var embeds = document.querySelectorAll('[data-lazy-embed]');
-  if ('IntersectionObserver' in window){
-    var embedObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting){
-          var el = entry.target;
-          var platform = el.getAttribute('data-platform');
-          el.querySelector('.placeholder').innerHTML = 'Loading ' + platform + ' portfolio…';
-          embedObserver.unobserve(el);
-        }
-      });
-    }, { threshold:0.2, rootMargin:'200px 0px' });
-    embeds.forEach(function(el){ embedObserver.observe(el); });
-  }
 
   /* ---------- Footer year ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
